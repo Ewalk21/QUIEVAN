@@ -1,0 +1,188 @@
+\documentclass[aps,pra,notitlepage,amsmath,amssymb,letterpaper,12pt]{revtex4-1}
+\usepackage{amsthm,enumerate,amsmath}
+\usepackage{graphicx}
+%  Above uses the Americal Physical Society template for Physical Review A
+%  as a reasonable and fully-featured default template
+
+%  Below define helpful commands to set up problem environments easily
+\newtheorem{theorem}{Theorem}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
+
+% --------------------------------------------------------------
+%                   Document Begins Here
+% --------------------------------------------------------------
+
+\begin{document}
+
+\title{Midterm Project 4}
+\author{Madeline Harris, Jacob Lepp, Alejandra Cortes, Evan Walker}
+%\affiliation{Math 450, Schmid College of Science and Technology, Chapman University}
+\date{\today}
+
+\maketitle
+
+\section{Proofs for Theorems 5.12 and 5.13}
+
+
+\begin{theorem}[Generalized Mean-Value Theorem(5.12)]
+(also known as Cauchys Mean-Value Theorem)Let $f$ and $g$ be two functions, each having a derivative (finite or infinite) at each point
+of an open interval $(a,b)$ and each continuous at the endpoints $a$ and $b$. Assume also that there
+is no interior point $x$ at which both $f^\prime(x)$ and $g^\prime(x)$ are infinite. Then for some
+interior point $c$ we have
+\[f^\prime(c)[g(b)-g(a)] = g^\prime(c)[f(b)-f(a)]\]
+\end{theorem}
+
+Note: easier to visualize why this is when in the form $\frac{f^\prime(c)}{g^\prime(c)} = \frac{f(b)-f(a)}{g(b)-g(a)}$
+
+%graph here
+
+\begin{proof}
+Let $h(x) = f(x)[g(b) - g(a)] - g(x)[f(b) - f(a)]$. Since $h(x)$ is a linear combination of $f(x)$ and $g(x)$, $h(x)$ inherits many of the assumptions about $f(x)$ and $g(x)$, which is exactly what we want in order to use Rolle's theorem. Note that,
+\begin{align*}
+$h(a)$ &= $ f(a)[g(b) - g(a)] - g(a)[f(b) - f(a)]$
+\\ &= $ f(a)g(b) - g(a)f(b)$
+\\ &= $ - f(b)g(a) + g(b)f(a)$
+\\ &= $ f(b)[g(b) - g(a)] - g(b)[f(b) - f(a)]$
+\\ &= $ h(b)$
+\end{align*}
+So $h(a) = h(b)$, $ \Rightarrow $ by Rolle's theorem we have that $\exists $ $c$ such that $ h^\prime(c) = 0 $. And Hence,
+\[h^\prime(c) = f^\prime(c)[g(b) - g(a)] - g^\prime(c)[f(b) - f(a)] = 0\]
+$ \Rightarrow $
+\[f^\prime(c)[g(b)-g(a)] = g^\prime(c)[f(b)-f(a)]\]
+This proves the assertion.
+\end{proof}
+
+\begin{theorem}[5.13 in our book]
+Let $f$ and $g$ be two functions, each having a derivative (finite or infinite) at each point of $(a,b)$. At the endpoints assume that the limits $f(a+)$,$g(a+)$,$f(b-)$, and $g(b-)$ exist as finite values. Assume further that there is no interior point x at which both $f^\prime(x)$ and $g^\prime(x)$ are infinite. Then for some
+interior point $c$ we have
+\[f^\prime(c)[g(b-)-g(a+)] = g^\prime(c)[f(b-)-f(a+)]\]
+\end{theorem}
+
+\begin{proof}
+Define $F(x)$ and $G(x)$ as, $$F(x) = f(x) \textrm{ and } G(x) = g(x) \textrm{ for } x \in (a,b)$$
+and define the end points of $F$ and $G$ at $a$ and $b$ as,
+$$F(a) = f(a+)\textrm{ and } F(b) = f(b-)$$
+$$G(a) = g(a+)\textrm{ and } G(b) = g(b-)$$
+So $G$ and $F$ are continuous on $[a,b]$ since we've defined $F$ and $G$ on the interval $(a,b)$ and at the endpoints $a$ and $b$. Now, by the General Mean Value Theorem we have that $\exists$ $c$ such that,
+\[F^\prime(c)[G(b)-G(a)] = G^\prime(c)[F(b)-F(a)]\]
+since $c$ is an interior point, we have that $G^\prime(c) = g^\prime(c)$ and $F^\prime(c) = f^\prime(c)$. and plugging in our values for $a$ and $b$ we get,
+\[f^\prime(c)[g(b-)-g(a+)] = g^\prime(c)[f(b-)-f(a+)]\]
+\end{proof}
+
+\section{Proofs for Theorems 5.11, 5.14, and 5.16 as Examples}
+
+\begin{theorem}[Mean-Value Theorem(5.11)]
+Assume that $f$ has a derivative (finite or infinite) at each point of $(a,b)$, and assume that $f$ is continuous at both endpoints $a$ and $b$. Then $\exists c \in (a,b)$ such that
+\[f(b) - f(a) = f^\prime(c)(b-a)\]
+\end{theorem}
+
+Note: easier to visualize when in the form $f^\prime(c) = \frac{f(b)-f(a)}{b-a}$, consider the graph above
+
+\begin{figure}[h!] % h forces the figure to be placed here, in the text
+  \includegraphics[width=0.6\textwidth]{a.png}  % if pdflatex is used, jpg, pdf, and png are permitted
+  \caption{We can see that $f^\prime(c) = \frac{f(b)-f(a)}{b-a}$.}
+  \label{fig:figlabel}
+\end{figure}
+
+\begin{proof}
+Consider Theorem 5.12, The General Mean-Value Theorem. We have that
+\[f^\prime(c)[g(b)-g(a)] = g^\prime(c)[f(b)-f(a)]\]
+Letting $g(x) = x$, then if we can find $g^\prime(x)$ we could  substitute and simplify to get 
+\[f(b) - f(a) = f^\prime(c)(b-a)\]
+Let's first find $g^\prime(x)$
+\begin{equation} \label{eq1}
+\begin{split}
+$g'(x)$ &= $ \lim_{x \to c} \displaystyle \frac{g(x) - g(c)}{x - c} $ \nonumber \\
+&= $\lim_{x \to c} \displaystyle \frac{x - c}{x - c}$ \nonumber \\
+&= 1
+\end{split}
+\end{equation}
+Now substituting $g(x) = x$ and $g^\prime(x) = 1$ into the result of Theorem 5.12 we get,
+\[f^\prime(c)[b - a] =1[f(b)-f(a)]\]
+After little simplification, we get exactly what we wanted,
+\[f(b)-f(a) =f^\prime(c)(b - a)\]
+\end{proof}
+
+$\smallskip$
+
+\begin{theorem}[5.14 in our book]
+Assume that $f$ has a derivative (finite or infinite) at each point of an open interval $(a,b)$, and that $f$ is continuous at both endpoints $a$ and $b$.
+\begin{enumerate}[\upshape (a)]
+  \item if $f^\prime(x)>0 $ , $\forall x\in (a,b) \Rightarrow f$ is strictly increasing on $[a,b]$.
+  \item if $f^\prime(x)<0 $ , $\forall x\in (a,b) \Rightarrow f$ is strictly increasing on $[a,b]$.
+  \item if $f^\prime(x)=0 $ , $\forall x\in (a,b) \Rightarrow f$ is constant on $[a,b]$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\begin{enumerate}[\upshape (a)]
+
+  \item by definition 4.50, strictly increasing implies that $\forall(n,m)$ where $n<m$ then $f(n)< f(m)$,
+  which is equivalent to $m - n > 0$ implies $f(m) - f(n) > 0$. Let $(n,m) \in (a,b)$ and $n < m$. Using the General Mean-Value theorem where $g(x) = x$,
+\begin{align}
+$f'(c)[g(m) - g(n)]$ &= $g'(c)[f(m) - f(n)]$ \\
+$f'(c)(m - n)$ &= $f(m) - f(n)$ \nonumber  \tag{since g(x) = x} \\
+$f'(c)$ &= \frac{f(m) - f(n)}{m - n}
+\end{align}
+We want to show that if $f'(c) > 0 \Rightarrow f(m) - f(n) \geq 0$. Since we assumed $m - n > 0$, then by equation (2) above and the order axioms, we have that $f(m) - f(n) > 0$, and thus fulfilling the definition of strictly increasing.
+
+  \item by definition 4.50, strictly decreasing implies that $\forall(n,m)$ where $n<m$ then $f(n)> f(m)$,
+  which is equivalent to $m - n > 0$ implies $f(m) - f(n) < 0$. Let $(n,m) \in (a,b)$ and $n<m$. Using the General Mean-Value theorem where $g(x) = x$,
+\begin{align}
+$f'(c)[g(m) - g(n)]$ &= $g'(c)[f(m) - f(n)]$ \\
+$f'(c)(m - n)$ &= $f(m) - f(n)$ \nonumber  \tag{since g(x) = x} \\
+$f'(c)$ &= \frac{f(m) - f(n)}{m - n}
+\end{align}
+We want to show that if $f'(c) < 0 \Rightarrow f(m) - f(n) < 0$. Since we assumed $m - n > 0$, then by equation (4) above and the order axioms, we have that $f(m) - f(n) < 0$, and thus fulfilling the definition of strictly decreasing.
+
+  \item Let $f^\prime(x)=0, \forall x \in (a,b)$. We want to show that $f(x) = c$ on $\forall x \in [a,b]$
+  and for some constant c. Again using the General Mean-Value theorem where $g(x) = x$,
+\begin{align}
+$f'(c)[g(m) - g(n)]$ &= $g'(c)[f(m) - f(n)]$ \\
+$f'(c)(m - n)$ &= $f(m) - f(n)$ \nonumber  \tag{since g(x) = x} \\
+$f'(c)$ &= \frac{f(m) - f(n)}{m - n}
+\end{align}
+Since $f^\prime(x)=0, \forall x \in (a,b) $, then  $f^\prime(c) = 0$. By equation (6) above, $f(m) - f(n) = 0$ which implies $f(m) = f(n)$, $\forall n,m \in [a,b]$. And hence, $f$ is constant on the interval $[a,b]$
+\end{enumerate}
+\end{proof}
+
+\begin{theorem}[Intermediate-value theorem for derivatives(5.16)]
+Assume that $f$ is defined on a compact interval $[a,b]$ and that $f$ has a derivative(finite or infinite) at each interior point. Assume also that $f$ has finite one-sided derivatives $f'_{+}(a)$ and $f'_{-}(b)$ at the endpoints, with $f'_{+}(a)\neq f'_{-}(b)$. Then, if c is a real number between $f'_{+}(a)$ and $f'_{-}(b)$, there exists at least one interior point $n$ such that $f^\prime(n)=c$
+\end{theorem}
+
+\begin{proof}
+Define $r(x)$ and $l(x)$ as,
+$$l(x) = \begin{cases} \displaystyle \frac{f(a) - f(x)}{a - x} \textrm{ for } x \neq a\\ f^\prime_{+}(a)\textrm{ for } x = a\end{cases}$$
+and
+$$r(x) = \begin{cases} \displaystyle \frac{f(x) - f(b)}{x - b} \textrm{ for } x \neq b\\ f^\prime_{-}(b)\textrm{ for } x = b\end{cases}$$
+Note that $r(a) = f^\prime_{+}(a)$ and $l(b) = f^\prime_{-}(b)$. If $f^\prime_{+}(a) < c < f^\prime_{-}(b)$
+$\Rightarrow$ $r(a) < c < l(b)$. We want to show that $\exists$ $n\in(a,b)$ s.t. $f^\prime(n)=c$.
+
+$\smallskip$
+
+Also note that by the General Mean-Value theorem $l(x) = f^\prime(k) \textrm{ for some } k\in(a,x)$. likewise for $r$, $r(x) = f^\prime(k) \textrm{ for some } k\in(x,b)$. Hence $f^\prime$ ranges over $r(x) \cup l(x)$  $\forall x \in [a,b]$. Note both $r$ and $l$ are continuous on the closed interval $[a,b]$. Then we have that $\forall x \in [a,b]$,
+
+\[l(a) \le l(x) \le l(b)\]
+$\Rightarrow$
+\[f^\prime_{+}(a) \le l(x) \le \displaystyle\frac{f(a) - f(b)}{a - b} \tag{1}\]
+and
+\[r(a) \le r(x) \le r(b)\]
+$\Rightarrow$
+\[\displaystyle\frac{f(a) - f(b)}{a - b} \le r(x) \le f^\prime_{-}(b)\tag{2}\]
+Then by (1) and (2) we have that,
+\[f^\prime_{+}(a) \le l(x) \le r(x) \le f^\prime_{-}(b)\]
+Then by the Intermediate Value Theorem, c must be in either $l(x)$ or $r(x)$.
+If $c\in l(x)$ then,
+\[c = \displaystyle\frac{f(a) - f(s)}{a - s} \textrm{ for some s} \in (a,b)\]
+and by the Mean-Value Theorem, $\exists n$ s.t.
+\[c = \displaystyle\frac{f(a) - f(s)}{a - s} = f^\prime(n)\]
+If $c\in r(x)$ then,
+\[c = \displaystyle\frac{f(s) - f(b)}{s - b} \textrm{ for some s} \in (a,b)\]
+and by the Mean-Value Theorem, $\exists n$ s.t.
+\[c = \displaystyle\frac{f(s) - f(b)}{s - b} = f^\prime(n)\]
+In either case, $n$ exists and the assertion is proved.
+\end{proof}
+
+\end{document}
