@@ -24,38 +24,47 @@
 \maketitle
 
 
-\begin{theorem}
-Thm. 3.24 (Bolzano-Weierstrass) in the cases n=1 and n=2. Application: Thm. 3.25 Cantor Intersection Theorem
+\begin{theorem}[3.24 Bolzano-Weierstrass]
+If a bounded set $S \subseteq \mathbb{R}^n$ contains infinitely many points, then there is at least one point in $\mathbb{R}^n$ which is an accumulation point of $S$.
+%Application: Thm. 3.25 Cantor Intersection Theorem
 \end{theorem}
 
 \begin{proof}
 \end{proof}
 
 
-\begin{theorem}
-Thm 3.27 and application: Thm 3.28 (Lindeloff Covering Theorem)
+\begin{theorem}[3.27] \nonumber
+Let $G = \{A_{1},A_{2},...\}$ denote the countable collection of all n-balls having rational radii and centers at points with rational coordinates. Assume $x \in \mathbb{R}^n$ and let $S$ be an open set in $\mathbb{R}^n$ and $x \in S$. Then $x \in A_{k} \subseteq S$ for some k. That is, x is contained by some n-ball in $G$ which is contained by $S$.
+%Application: Thm 3.28 (Lindeloff Covering Theorem)
 \end{theorem}
 
 \begin{proof}
 \end{proof}
 
 
-\begin{theorem}
-Thm 3.29 (Heine-Borel) and application: you choose
+\begin{theorem}[3.29 Heine-Borel]
+Let $F$ be an open covering of a closed and bounded set $A \subseteq \mathbb{R}^n$. Then a finite subcollection of $F$ also covers $A$.
+%Application: you choose
 \end{theorem}
 
 \begin{proof}
 \end{proof}
 
 
-\begin{theorem}
-Thm 3.31 (proof) and comparison with metric spaces (without proof)
+\begin{theorem}[3.31]
+Let $S \subseteq \mathbb{R}^n$. Then the following statements are equivalent
+\begin{enumerate}[\upshape a)]
+  \item $S$ is compact. %note a implies b by heineborel
+  \item $S$ is closed and bounded.
+  \item Every infinite subset of $S$ has an accumulation point in $S$.
+\end{enumerate}
+%comparison with metric spaces (without proof)
 \end{theorem}
 
 \begin{proof}
 \end{proof}
 
-
+\newpage{}
 \begin{theorem}
 Continuous Functions in Metric Spaces: Thm. 4.16, Thm. 4.23, Thm. 4.25
 \end{theorem}
@@ -64,19 +73,40 @@ Continuous Functions in Metric Spaces: Thm. 4.16, Thm. 4.23, Thm. 4.25
 \end{proof}
 
 
-\begin{theorem}
-Uniform Continuity Thm. 4.47 (Heine)
+\begin{theorem}[Uniform Continuity Thm. 4.47 (Heine)]
+Let $f:S \to T$ be a function from one metric space $(S,d_{S})$ to another $(T,d_{T})$. Let $A$ be a compact subset of $S$ and assume that $f$ is continuous on $A$. Then $f$ is uniformly continuous on $A$.
 \end{theorem}
 
 \begin{proof}
 \end{proof}
 
 
-\begin{theorem}
-Thm 5.10 (Rolle) and Thm 5.12 (Generalized Mean Value). Application: Thm 5.11
+\begin{theorem}[Thm 5.10 (Rolle) and Thm 5.12 (Generalized Mean Value)]
+Let $f$ and $g$ be two functions, each having a derivative (finite or infinite) at each point
+of an open interval $(a,b)$ and each continuous at the endpoints $a$ and $b$. if $f(a)=f(b)$, then there is at least one interior point c at which
+\[f^\prime(c) = 0\]
+Now assume also that there is no interior point $x$ at which both $f^\prime(x)$ and $g^\prime(x)$ are infinite. Then for some interior point $c$ we have
+\[f^\prime(c)[g(b)-g(a)] = g^\prime(c)[f(b)-f(a)]\]
+%Application: Thm 5.11
 \end{theorem}
 
 \begin{proof}
+%proof for rolles
+
+%proof for 5.12
+Let $h(x) = f(x)[g(b) - g(a)] - g(x)[f(b) - f(a)]$. Since $h(x)$ is a linear combination of $f(x)$ and $g(x)$, $h(x)$ inherits many of the assumptions about $f(x)$ and $g(x)$, which is exactly what we want in order to use Rolle's theorem. Note that,
+\begin{align*}
+$h(a)$ &= $ f(a)[g(b) - g(a)] - g(a)[f(b) - f(a)]$
+\\ &= $ f(a)g(b) - g(a)f(b)$
+\\ &= $ - f(b)g(a) + g(b)f(a)$
+\\ &= $ f(b)[g(b) - g(a)] - g(b)[f(b) - f(a)]$
+\\ &= $ h(b)$
+\end{align*}
+So $h(a) = h(b)$, $ \Rightarrow $ by Rolle's theorem we have that $\exists $ $c$ such that $ h^\prime(c) = 0 $. And Hence,
+\[h^\prime(c) = f^\prime(c)[g(b) - g(a)] - g^\prime(c)[f(b) - f(a)] = 0\]
+$ \Rightarrow $
+\[f^\prime(c)[g(b)-g(a)] = g^\prime(c)[f(b)-f(a)]\]
+This proves the assertion.
 \end{proof}
 
 \begin{theorem}
