@@ -109,17 +109,55 @@ $ \Rightarrow $
 This proves the assertion.
 \end{proof}
 
-\begin{theorem}
-Riemann-Stieljes: 7.8, 7.9, 7.12 with examples
+%\section{The following three proofs are with respect to problem 8}
+The following three proofs are with respect to problem 8
+\begin{theorem}[7.8]
+Assume $f \in R(\alpha)$ on $[a,b]$ and assume that $\alpha$ has a continuous derivative $\alpha^\prime$ on $[a,b]$. Then the Riemann integral $\int_{a}^{b} f(x) \alpha^\prime(x)dx$ exists and we have
+\[\int_{a}^{b} f(x) d\alpha(x) = \int_{a}^{b} f(x) \alpha^\prime(x)dx\]
+%Riemann-Stieljes: 7.8, 7.9, 7.12 with examples
 \end{theorem}
-
 \begin{proof}
 \end{proof}
 
-\begin{theorem}
- Theorem 7.30, 7.32 and 7.34 with examples
+\begin{theorem}[7.9]
+Given $a < c < b$. Define $\alpha$ on $[a,b]$ as follows: The values $\alpha(a)$, $\alpha(c)$, $\alpha(b)$ are arbitrary;
+\[\alpha(x) = \alpha(a) \textrm{ if } a \leq x < c\]
+and
+\[\alpha(x) = \alpha(b) \textrm{ if } c \leq x < b\]
+Let $f$ be defined on $[a,b]$ in such a way that at least one of the functions $f$ or $\alpha$ is continuous from the left at $c$ and at least one is continuous from the right at $c$. Then $f \in R(\alpha)$ on $[a,b]$ and we have
+\[\int_{a}^{b} f d\alpha = f(c)[\alpha(c+) - \alpha(c-)]\]
+%Riemann-Stieljes: 7.8, 7.9, 7.12 with examples
 \end{theorem}
+\begin{proof}
+\end{proof}
 
+\begin{theorem}[7.12]
+Every finite sum can be written as a Riemann-Stieltjes integral. In fact, given a sum $\sum_{k=1}^{n} a_{k}$, define $f$ on $[0,n]$ as follows:
+\[f(x) = a_{k}  \textrm{  if  }  k-1 < x \leq k\]
+for $k=1,2,...,n$, and $f(0) = 0$. Then
+\[\sum_{k=1}^{n}a_{k} = \sum_{k=1}^{n}f(k) = \int_{0}^{n}f(x)d[x]\]
+where $[x]$ is the greatest integer $\leq x$.
+%Riemann-Stieljes: 7.8, 7.9, 7.12 with examples
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+The following three proofs are with respect to problem 9
+\begin{theorem}[7.30]
+%Theorem 7.30, 7.32 and 7.34 with examples
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}[7.32]
+%Theorem 7.30, 7.32 and 7.34 with examples
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}[7.34]
+%Theorem 7.30, 7.32 and 7.34 with examples
+\end{theorem}
 \begin{proof}
 \end{proof}
 
