@@ -143,19 +143,36 @@ where $[x]$ is the greatest integer $\leq x$.
 \end{proof}
 
 The following three proofs are with respect to problem 9
-\begin{theorem}[7.30]
+\begin{theorem}[7.30 first mean-value theorem for Riemann-Stieltjes integrals]
+Assume that $\alpha$ is increasing and let $f \in R(\alpha)$ on $[a,b]$. Let $M$ and $m$ denote, respectively, the $sup$ and $inf$ of the set $\{f(x):x \in [a,b]\}$. Then $\exists c \in \mathbb{R}$ satisfying $m \leq c \leq M$ such that
+\[\int_{a}^{b}f(x)d\alpha(x) = c\int_{a}^{b}d\alpha(x) = c[\alpha(a)-\alpha(b)]\]
+In particular, if $f$ is continuous on $[a,b]$, then $c=f(x_{0})$ for some $x_{0} \in [a,b]$.
 %Theorem 7.30, 7.32 and 7.34 with examples
 \end{theorem}
 \begin{proof}
 \end{proof}
 
 \begin{theorem}[7.32]
+Let $\alpha$ be of bounded variation on $[a,b]$ and assume that
+$f \in R(\alpha)$ on $[a,b]$. Define F by
+\[F(x)=\int_{a}^{x} f d \alpha \textrm{ if } x \in [a,b]\]
+\begin{enumerate}[\upshape a)]
+  \item $F$ is of bounded variation $[a,b]$.
+  \item Every point of continuity of $\alpha$ is also a point of continuity of $F$.
+  \item if $\alpha$ is increasing on $[a,b]$, then $\exists F^\prime(x)$ at each point $x \in [a,b]$ where $\alpha^\prime(x)$ exists and where $f$ is continuous. For such $x$, we have $$F^\prime(x) = f(x)\alpha^\prime(x)$$.
+\end{enumerate}
 %Theorem 7.30, 7.32 and 7.34 with examples
 \end{theorem}
 \begin{proof}
 \end{proof}
 
-\begin{theorem}[7.34]
+\begin{theorem}[7.34 Second fundamental theorem of integral calculus]
+Assume that $f \in R$ on $[a,b]$. Let $g$ be a function defined on $[a,b]$ such that $\exists g^\prime \in (a,b)$ and has the value
+\[g^\prime(x) = f(x) \textrm{ for every } x \in (a,b)\]
+At the endpoints assume that $g(a+)$ and $g(b-)$ exist and satisfy
+\[g(a) - g(a+) = g(b) - g(b-)\]
+Then we have
+\[\int_{a}^{b} f(x)dx = \int_{a}^{b} g^\prime(x)dx = g(b) - g(a)\]
 %Theorem 7.30, 7.32 and 7.34 with examples
 \end{theorem}
 \begin{proof}
