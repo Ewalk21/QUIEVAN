@@ -34,11 +34,21 @@ If a bounded set $S \subseteq \mathbb{R}^n$ contains infinitely many points, the
 
 
 \begin{theorem}[3.27] \nonumber
-Let $G = \{A_{1},A_{2},...\}$ denote the countable collection of all n-balls having rational radii and centers at points with rational coordinates. Assume $x \in \mathbb{R}^n$ and let $S$ be an open set in $\mathbb{R}^n$ and $x \in S$. Then $x \in A_{k} \subseteq S$ for some k. That is, x is contained by some n-ball in $G$ which is contained by $S$.
+Let $G = \{A_{1},A_{2},...\}$ denote the countable collection of all n-balls having rational radii and centers at points with rational coordinates. Assume $x \in \mathbb{R}^n$ and let $S$ be an open set in $\mathbb{R}^n$ and $x \in S$. Then $x \in A_{k} \subseteq S$ for some $k$. That is, $x$ is contained by some n-ball in $G$ which is contained by $S$.
 %Application: Thm 3.28 (Lindeloff Covering Theorem)
 \end{theorem}
-
 \begin{proof}
+Theorem 2.27 states that if G is a countable collection of countable sets, then
+\[\cup_{k=1}^{n} A_{k} \qquad A_{k} \in G\]
+is also countable. Since $x \in S$, and $S$ is open, we know that there exists an n-ball such that
+\[B(x,r) \subseteq S\]
+We want to find a rational point $y\in S$ such that $x \in B(y,R) \in G$, or equally stated by $B(y,R) \subseteq B(x,r) \subseteq S$. Let
+$x=(x_{1},x_{2},...,x_{n})$ and let $y_{k}$ be a rational number such that
+\[\left| y_{k} - x_{k} \right| < \frac{r}{4n} \qquad \textrm{ for each } k=1,2,3,...,n\]
+Then
+\[\|y-x\| \leq \mid y_{1}-x_{1} \mid + ... + \mid y_{n}-x_{n} \mid < \frac{r}{4}\]
+Let us define $R$ as a rational number such that $\frac{r}{4} < R < \frac{r}{2}$. Then
+$x \in B(y,R)$ since we found the distance between $y$ and $x$ to be less than $r/4$, so surely $x$ must be contained in $B(y,R)$. By the same reasoning, we have that $B(y,R) \subseteq B(x,r) \subseteq S$. since both $y$ and $R$ are rational by construction, we have that $B(y,R) \in G$. Hence, we've proved the assertion.
 \end{proof}
 
 
@@ -64,11 +74,30 @@ Let $S \subseteq \mathbb{R}^n$. Then the following statements are equivalent
 \begin{proof}
 \end{proof}
 
-\newpage{}
-\begin{theorem}
-Continuous Functions in Metric Spaces: Thm. 4.16, Thm. 4.23, Thm. 4.25
-\end{theorem}
 
+The next 3 theorems are with respect to problem 5.
+\begin{theorem}[theorem 4.16]
+Let $f:S \to T$  be a function from one metric space $(S,d_{S})$ to another $(T,d_{T})$, and assume $p \in S$. Then $f$ is continuous at $p$ iff for every sequence $\{x_{n}\}$ in $S$ convergent to $p$, the sequence $\{f(x_{n})\}$ in $T$ converges to $f(p)$. Symbolically,
+\[\lim_{n \to \infty} f(x_{n}) = f(\lim_{n \to \infty} x_{n})\]
+%Continuous Functions in Metric Spaces: Thm. 4.16, Thm. 4.23, Thm. 4.25
+\end{theorem}
+\begin{proof}
+($\Longrightarrow$) Assume that $f$ is continuous at $p$. The definition of continuity at a point states that for every $\epsilon > 0$ there is a $\delta >0$ such that,
+\[d_{T}(f(x),f(p)) < \epsilon \qquad \textrm{  whenever  } d_{S}(x,p) < \delta\]
+if $d_{S}(x,p) < \delta$, then 
+\end{proof}
+
+\begin{theorem}[theorem 4.23]
+Let $f:S \to T$  be a function from one metric space $(S,d_{S})$ to another $(T,d_{T})$. Then $f$ is continuous on $S$ iff for every open set $Y$ and $T$, the inverse image $f^{-1}(Y)$ is open on $S$.
+%Continuous Functions in Metric Spaces: Thm. 4.16, Thm. 4.23, Thm. 4.25
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+\begin{theorem}[theorem 4.25]
+Let $f:S \to T$  be a function from one metric space $(S,d_{S})$ to another $(T,d_{T})$. If $f$ is continuous on compact subset $X$ of $S$, then the image $f(X)$ is a compact subset of $T$; in particular, $f(X)$ is closed and bounded in $T$.
+%Continuous Functions in Metric Spaces: Thm. 4.16, Thm. 4.23, Thm. 4.25
+\end{theorem}
 \begin{proof}
 \end{proof}
 
@@ -159,7 +188,7 @@ $f \in R(\alpha)$ on $[a,b]$. Define F by
 \begin{enumerate}[\upshape a)]
   \item $F$ is of bounded variation $[a,b]$.
   \item Every point of continuity of $\alpha$ is also a point of continuity of $F$.
-  \item if $\alpha$ is increasing on $[a,b]$, then $\exists F^\prime(x)$ at each point $x \in [a,b]$ where $\alpha^\prime(x)$ exists and where $f$ is continuous. For such $x$, we have $$F^\prime(x) = f(x)\alpha^\prime(x)$$.
+  \item if $\alpha$ is increasing on $[a,b]$, then $\exists F^\prime(x)$ at each point $x \in [a,b]$ where $\alpha^\prime(x)$ exists and where $f$ is continuous. For such $x$, we have $$F^\prime(x) = f(x)\alpha^\prime(x)$$
 \end{enumerate}
 %Theorem 7.30, 7.32 and 7.34 with examples
 \end{theorem}
@@ -178,25 +207,71 @@ Then we have
 \begin{proof}
 \end{proof}
 
-\begin{theorem}
-Thms 9.2 with many examples (non u.c. does not imply convergence etc...)
+The next 4 theorems are with respect to problem 11
+\begin{theorem}[8.22]
+If $|x| < 1$, the series $1 + x + x^2 + ... $  converges and has the sum $\frac{1}{1-x}$. If $|x| \geq 1$, the series diverges.
+%Convergence Test: Thms 8.22, 8.23,8.25,8.26 with Examples
 \end{theorem}
-
 \begin{proof}
 \end{proof}
 
-\begin{theorem}
-Convergence Test: Thms 8.22, 8.23,8.25,8.26 with Examples
+\begin{theorem}[8.23 integral test]
+Let $f$ be a positive decreasing function defined on $[1, \infty)$ such that $\lim_{x \to +\infty}f(x) = 0$. For $n = 1,2,...$, define
+\[s_{n} = \sum_{k=1}^{n}f(k), \qquad  t_{n} = \int_{1}^{n}f(x)dx,  \qquad  d_{n}=s_{n}-t_{n}\]
+Then we have:
+\begin{enumerate}[\upshape a)]
+  \item $0 < f(n+1) \leq d_{n+1} \leq d_{n} \leq f(1)$, \qquad for  $n=1,2,...$
+  \item $\lim_{n \to \infty}d_{n}$ exists
+  \item $\sum_{n=1}^{\infty}f(n)$ converges iff the sequence ${t_{n}}$ converges
+  \item $0 \leq d_{k}-\lim_{n \to \infty}d_{n} \leq f(k)$, \qquad for $k=1,2,...$
+\end{enumerate}
+%Convergence Test: Thms 8.22, 8.23,8.25,8.26 with Examples
 \end{theorem}
-
 \begin{proof}
 \end{proof}
 
-\begin{theorem}
-Thm. 9.5 and Thm 9.6 with examples.
+\begin{theorem}[8.25 ratio test]
+Given a series $\sum a_{n}$ of nonzero complex terms, let
+\[r = \lim_{n \to \infty} inf \left| \frac{a_{n+1}}{a_{n}}\right|, \qquad R = \lim_{n \to \infty} sup \left| \frac{a_{n+1}}{a_{n}}\right|\]
+\begin{enumerate}[\upshape a)]
+  \item The series $\sum a_{n}$ converges absolutely if $R < 1$.
+  \item The series $\sum a_{n}$ diverges if $r>1$.
+  \item The test is inconclusive if $r \leq 1 \leq R$.
+\end{enumerate}
+%Convergence Test: Thms 8.22, 8.23,8.25,8.26 with Examples
 \end{theorem}
-
 \begin{proof}
 \end{proof}
+
+\begin{theorem}[8.26 root test]
+Given a series $\sum a_{n}$ of complex terms, let
+\[p = \lim_{n \to \infty} sup \sqrt[n]{\mid a_{n} \mid}\]
+\begin{enumerate}[\upshape a)]
+  \item The series $\sum a_{n}$ converges absolutely if $p < 1$.
+  \item The series $\sum a_{n}$ diverges if $p>1$.
+  \item The test is inconclusive if $p=1$.
+\end{enumerate}
+%Convergence Test: Thms 8.22, 8.23,8.25,8.26 with Examples
+\end{theorem}
+\begin{proof}
+\end{proof}
+
+%The next 2 theorems are with respect to problem 12
+%\begin{theorem}[9.5 Cauchy condition for uniform convergence of series]
+%The infinite series $\sum f_{n}(x)$ converges uniformly on $S$ iff $\forall\epsilon > 0$ there is an $N$ such that $n>N$ implies,
+%\[\left| \sum_{k=n+1}^{n+p} f_{k}(x) \right| < \epsilon, \qquad \textrm{ for each } p = 1,2,... \textrm{ and } \forall x \in S\]
+%Thm. 9.5 and Thm 9.6 with examples.
+%\end{theorem}
+%\begin{proof}
+%\end{proof}
+
+%\begin{theorem}[9.6 Weierstrass M-test]
+%Let $\{M_{n}\}$ be a sequence of nonnegative numbers such that
+%\[0 \leq \left| f_{n}(x) \right| \leq \{M_{n}\}, \qquad \textrm{ for } n = 1,2,... \textrm{ and } \forall x \in S\]
+%Then $\sum f_{n}(x)$ converges uniformly on $S$ if $\sum \{M_{n}\}$ converges.
+%Thm. 9.5 and Thm 9.6 with examples.
+%\end{theorem}
+%\begin{proof}
+%\end{proof}
 
 \end{document}
