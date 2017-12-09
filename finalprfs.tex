@@ -83,15 +83,22 @@ Let $f:S \to T$  be a function from one metric space $(S,d_{S})$ to another $(T,
 \end{theorem}
 \begin{proof}
 ($\Longrightarrow$) Assume that $f$ is continuous at $p$. The definition of continuity at a point states that for every $\epsilon > 0$ there is a $\delta >0$ such that,
-\[d_{T}(f(x),f(p)) < \epsilon \qquad \textrm{  whenever  } d_{S}(x,p) < \delta\]
-if $d_{S}(x,p) < \delta$, then 
+\[d_{T}(f(x),f(p)) < \delta \qquad \textrm{  whenever  } d_{S}(x,p) < \delta\]
+And if every sequence $\{x_{n}\} \rightarrow p$ in $S$, then  $\forall \delta > 0 \quad \exists N$ s.t. $$d_{S}(x_{n},p) < \delta, \qquad \textrm{ whenever } n \geq N$$
 \end{proof}
 
 \begin{theorem}[theorem 4.23]
-Let $f:S \to T$  be a function from one metric space $(S,d_{S})$ to another $(T,d_{T})$. Then $f$ is continuous on $S$ iff for every open set $Y$ and $T$, the inverse image $f^{-1}(Y)$ is open on $S$.
+Let $f:S \to T$  be a function from one metric space $(S,d_{S})$ to another $(T,d_{T})$. Then $f$ is continuous on $S$ iff for every open set $Y$ in $T$, the inverse image $f^{-1}(Y)$ is open on $S$.
 %Continuous Functions in Metric Spaces: Thm. 4.16, Thm. 4.23, Thm. 4.25
 \end{theorem}
 \begin{proof}
+($\Longrightarrow$) Assume $Y$ is open and $f$ is continuous, Since $Y$ is open we have that $B_{T}(y,\epsilon) \subseteq Y$ for some $\epsilon > 0$. Let $p \in f^{-1}(Y)$ and $y=f(p)$, And Since $f$ is continuous on $S$ we have that $f$ is continuous at $p$ and hence $\exists \delta > 0$ such that  $f(B_{S}(p,\delta)) \subseteq B_{T}(y,\epsilon)$. Hence,
+\[B_{S}(p,\delta) \subseteq f^{-1}[f(B_{S}(p,\delta))] \subseteq f^{-1}[B_{T}(y,\epsilon)] \subseteq f^{-1}(Y)\]
+Then $p$ is an interior point of $f^{-1}(Y)$ and by Definition 3.6, if a set contains all its interior points then it is open, and since $p$ can be any point in $f^{-1}(Y)$ we have that $f^{-1}(Y)$ contains all its interior points and hence is open.
+\newline{}
+($\Longleftarrow$) Conversely, assume $f^{-1}(Y)$ is open in $S$ for every open subset set $Y$ in $T$. Take $p \in S$ and again let $y=f(p)$, then we want to show $f$ is continuous at $p$. $\forall \epsilon > 0$, $B_{T}(y,\epsilon)$ is open in $T$, hence $f^{-1}(B_{T}(y,\epsilon))$ is open in $S$. Since $f^{-1}(y) = p$ ,  $p \in f^{-1}(B_{T}(y,\epsilon))$, then $\exists \delta > 0$ such that,
+\[B_{S}(p,\delta) \subseteq f^{-1}(B_{T}(y,\epsilon)) \Rightarrow f(B_{S}(p,\delta)) \subseteq B_{T}(y,\epsilon)\]
+By definition 4.15, a function $f$ is continuous at $p$ iff $\forall \epsilon > 0, \quad \exists \delta > 0$ such that $ f(B_{S}(p,\delta)) \subseteq B_{T}(f(p),\epsilon)$, and hence we have that $f$ is continuous at $p$.
 \end{proof}
 
 \begin{theorem}[theorem 4.25]
