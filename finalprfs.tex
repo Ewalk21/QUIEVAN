@@ -30,6 +30,15 @@ If a bounded set $S \subseteq \mathbb{R}^n$ contains infinitely many points, the
 \end{theorem}
 
 \begin{proof}
+(Case $n=1$,$\quad \mathbb{R}^{1}$)
+Let $S \subset \mathbb{R}^{1}$ and $S$ bounded, $\Rightarrow$ since $S$ is bounded, $S$ lies completely within an interval $[a,b]$. Since $S$ contains infinitely many points,
+$$[a,\frac{a+b}{2}] \quad \textrm{ and }  \quad [\frac{a+b}{2},b]$$
+may either both contain infinitely many points or only one contains infinitely many points. Now define $[a_{1},b_{1}]$ to be one of the previously stated intervals with infinitely many points. Then
+$$[a_{1},\frac{a_{1}+b_{1}}{2}] \quad \textrm{ and }  \quad [\frac{a_{1}+b_{1}}{2},b_{1}]$$
+again may either both contain infinitely many points or only one contains infinitely many points. Repeating this process $k$ times, we arrive at an interval $[a_{k},b_{k}]$
+such that $sup(a_{k}) = inf(b_{k}) = x$ for some $x \in S$. We aim to show that $x$ is an accumulation point of $S$. Consider $k$ to be large enough such that $b_{k} - a_{k} < \frac{r}{2}$, $\Rightarrow [a_{k},b_{k}] \subseteq B(x,r)$. Since, by construction, $B(x,r)$ contains infinitely many points, $(B(x,r) - \{x\}) \cap S \ne \emptyset$ and hence $x$ is an accumulation point of $S$.
+\newline{}
+(Case $n=2$,$\quad \mathbb{R}^{2}$) Let $S \subset \mathbb{R}^{2}$ and $S$ bounded, $\Rightarrow$ since $S$ is bounded, $S$ lies completely within an interval $[a,b]$
 \end{proof}
 
 
