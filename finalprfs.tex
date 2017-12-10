@@ -131,30 +131,48 @@ By Definition 3.30, a set $S$ is compact iff every open covering of $S$ contains
 Hence our goal is to find a finite open subcovering of $f(X)$ and the assertion will be proved. Define $F$ to be an open covering of $f(X)$, so that $f(X) = \cup_{A \in F}A$. Since $f$ is continuous on $S$ and hence every subset of $S$, we can apply Theorem 4.23 to see that $\forall A \in F$, $f^{-1}(A)$ is also open in $(X,d_{S})$. Hence, $X \subseteq \cup_{A \in F}f^{-1}(A) $. Since $X$ is compact, we know by the definition of a compact set that there exists an open subcovering of $X$, hence $X \subseteq \cup_{k = 1}^{n}f^{-1}(A_{k}) $ for $A_{k} \in F$. And hence,
 $$ f(X) \subseteq f(\cup_{k = 1}^{n}f^{-1}(A_{k})) = \cup_{k = 1}^{n}f(f^{-1}(A_{k})) = \cup_{k = 1}^{n}A_{k} $$
 $\Rightarrow$ $f(X) \subseteq\cup_{k = 1}^{n}A_{k}$ and we have found our open subcovering, and hence $f(X)$ is closed and compact in $T$.
+$$ $$
 \end{proof}
 
 
 \begin{theorem}[Uniform Continuity Thm. 4.47 (Heine)]
 Let $f:S \to T$ be a function from one metric space $(S,d_{S})$ to another $(T,d_{T})$. Let $A$ be a compact subset of $S$ and assume that $f$ is continuous on $A$. Then $f$ is uniformly continuous on $A$.
 \end{theorem}
-
 \begin{proof}
+Let $\epsilon > 0$ be given. Then each point $a \in A$ has associated with it a ball  $B_{S}(a,r)$, with $r$ depending on $a$ such that,
+$$d_{T}(f(x),f(a)) < \frac{\epsilon}{2} \qquad \textrm{whenever } x\in B_{S}(a,r)\cap A$$
+Consider the collection of balls $B_{S}(a,r/2)$. Since $A$ is compact, a finite number of them also cover $A$, say
+$$ A \subseteq \cup_{k=1}^{n} B_{S}(a_{k},\frac{r_{k}}{2})  $$
+in any ball with twice the radius, $B_{S}(a_{k},r_{k})$, we have
+$$d_{T}(f(x),f(a_{k})) < \frac{\epsilon}{2} \qquad \textrm{whenever } x\in B_{S}(a_{k},r_{k}) \cap A$$
+Let $\delta = min(r_{n}/2)$. We want to show that $\delta$ satisfies the condition of uniform continuity. Take $x \in A$ and $p \in A$ with $d_{S}(x,p) < \delta$. it is clear that $x \in B_{S}(a_{k},r_{k}/2)$, hence
+$$ d_{T}(f(x),f(a_{k})) < \frac{\epsilon}{2} $$
+By the Triangle inequality and our defined $\delta$, we have
+$$d_{S}(p,a_{k}) \leq d_{S}(p,x) + d_{S}(x,a_{k}) < \delta + \frac{r_{k}}{2} \leq \frac{r_{k}}{2} + \frac{r_{k}}{2} = r_{k}$$
+Hence, $d_{S}(p,a_{k}) \leq r_{k}$ and thus $p \in B_{S}(a_{k},r_{k}) \cap S$. Using the Triangle inequality and the fact that $d_{T}(f(p),f(a_{k})) < \epsilon /2$, we have
+$$d_{T}(f(x),f(p)) \leq d_{T}(f(x),f(a_{k})) + d_{T}(f(a_{k}), f(p)) < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon$$
+hence we have that $d_{T}(f(x),f(p)) < \epsilon$ and $d_{S}(x,p) < \delta$, thus fulfilling the condition for uniform continuity.
+$$ $$
 \end{proof}
 
-
-\begin{theorem}[Thm 5.10 (Rolle) and Thm 5.12 (Generalized Mean Value)]
-Let $f$ and $g$ be two functions, each having a derivative (finite or infinite) at each point
-of an open interval $(a,b)$ and each continuous at the endpoints $a$ and $b$. if $f(a)=f(b)$, then there is at least one interior point c at which
+The following 2 theorems are with respect to problem 7
+\begin{theorem}[Thm 5.10 (Rolle)]
+Let $f$ be a functions, having a derivative (finite or infinite) at each point
+of an open interval $(a,b)$ and continuous at the endpoints $a$ and $b$. if $f(a)=f(b)$, then there is at least one interior point c at which
 \[f^\prime(c) = 0\]
-Now assume also that there is no interior point $x$ at which both $f^\prime(x)$ and $g^\prime(x)$ are infinite. Then for some interior point $c$ we have
+%Application: Thm 5.11
+\end{theorem}
+\begin{proof}
+Assume $f^\prime(x) \neq 0 \quad \forall x \in (a,b)$, we want to arrive at a contradiction. Since $f$ is continuous on a compact interval $(a,b)$, $\exists c_{1},c_{2} \in (a,b)$ such that $$f(c_{1}) = min(f(x)) \quad \textrm{ and } \quad f(c_{2}) = max(f(x))$$
+by Theorem 5.9, $c_{1}, c_{2}$ cannot be interior points since this implies $f^\prime(c_{1}) = 0$ and $f^\prime(c_{2}) = 0$. This implies that $f(c_{1})$ and $f(c_{2})$ are endpoints. Since $f(a) = f(b) \Rightarrow f(c_{1}) = f(c_{2})$ and hence $f$ is constant on $[a,b]$. However this contradicts our assumption that $f^\prime(x) \neq 0 \quad \forall x \in (a,b)$. Therefore $f^\prime(c) = 0$ for some $c \in (a,b)$.
+\end{proof}
+
+\begin{theorem}[Thm 5.12 (Generalized Mean Value)]
+Let $f$ and $g$ be two functions, each having a derivative (finite or infinite) at each point of an open interval $(a,b)$ and each continuous at the endpoints $a$ and $b$. Assume also that there is no interior point $x$ at which both $f^\prime(x)$ and $g^\prime(x)$ are infinite. Then for some interior point $c$ we have
 \[f^\prime(c)[g(b)-g(a)] = g^\prime(c)[f(b)-f(a)]\]
 %Application: Thm 5.11
 \end{theorem}
-
 \begin{proof}
-%proof for rolles
-
-%proof for 5.12
 Let $h(x) = f(x)[g(b) - g(a)] - g(x)[f(b) - f(a)]$. Since $h(x)$ is a linear combination of $f(x)$ and $g(x)$, $h(x)$ inherits many of the assumptions about $f(x)$ and $g(x)$, which is exactly what we want in order to use Rolle's theorem. Note that,
 \begin{align*}
 $h(a)$ &= $ f(a)[g(b) - g(a)] - g(a)[f(b) - f(a)]$
@@ -178,6 +196,25 @@ Assume $f \in R(\alpha)$ on $[a,b]$ and assume that $\alpha$ has a continuous de
 %Riemann-Stieljes: 7.8, 7.9, 7.12 with examples
 \end{theorem}
 \begin{proof}
+Let $g(x) = f(x)\alpha^\prime(x)$ and consider a Riemanm sum
+$$S(P,g) = \sum_{k=1}^{n}g(t_{k})\Delta x_{k} = \sum_{k=1}^{n}f(t_{k})\alpha^\prime(t_{k})\Delta x_{k}$$
+Using the same $P$ and $t_{k}$ we can form the following Riemann-Stieljes integral
+$$S(P,f,\alpha) =  \sum_{k=1}^{n}f(t_{k})\Delta \alpha_{k}$$
+From the M.V.T. we can write,
+$$\Delta \alpha_{k} = \alpha^\prime(v_{k}) \Delta x_{k} \qquad \textrm{whenever } v_{k} \in (x_{k-1},x_{k}) $$
+$\Longrightarrow$
+$$S(P,f,\alpha)-S(P,g) =  \sum_{k=1}^{n}f(t_{k})\alpha^\prime(v_{k}) \Delta x_{k} - \sum_{k=1}^{n}f(t_{k})\alpha^\prime(t_{k})\Delta x_{k} $$
+$$= \sum_{k=1}^{n}f(t_{k})[\alpha^\prime(v_{k})-\alpha^\prime(t_{k})]\Delta x_{k}$$
+Since $f$ is bounded, $\left|f(x)\right| \leq M \quad \forall x \in [a,b]$, where $M > 0$. Continuity of $\alpha^\prime$ on $[a,b]$ implies uniform continuity on $[a,b]$.
+$\Rightarrow \textrm{ for } \epsilon > 0, \quad \exists \delta > 0 $ such that
+$$ 0 \leq \left| x - y \right| < \delta \quad \textrm{implies} \quad \left| \alpha^\prime(x)- \alpha^\prime(y) \right| < \frac{\epsilon}{2M(b-a)}$$
+If we take a partition $P_{\epsilon}^{\prime}$ with norm $\|P_{\epsilon}^{\prime}\| < \delta$, then for any finer partition $P$ we will have
+$$\left| \alpha^\prime(v_{k})- \alpha^\prime(t_{k}) \right| < \frac{\epsilon}{2M(b-a)} \Rightarrow \left| S(P,f,\alpha)-S(P,g) \right| < \frac{\epsilon}{2}$$
+Since $f \in R(\alpha)$ on $[a,b]$, $\exists P_{\epsilon}^{\prime \prime}$ such that
+$$ \left| S(P,f,\alpha)-\int_{a}^{b}fd\alpha \right| < \frac{\epsilon}{2} $$
+Hence, combining the last two inequalities we have that
+$$ \left| S(P,g)-\int_{a}^{b}fd\alpha \right| < \epsilon $$
+This proves the assertion.
 \end{proof}
 
 \begin{theorem}[7.9]
