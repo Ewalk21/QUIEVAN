@@ -118,6 +118,7 @@ Then $p$ is an interior point of $f^{-1}(Y)$ and by Definition 3.6, if a set con
 ($\Longleftarrow$) Conversely, assume $f^{-1}(Y)$ is open in $S$ for every open subset set $Y$ in $T$. Take $p \in S$ and again let $y=f(p)$, then we want to show $f$ is continuous at $p$. $\forall \epsilon > 0$, $B_{T}(y,\epsilon)$ is open in $T$, hence $f^{-1}(B_{T}(y,\epsilon))$ is open in $S$. Since $f^{-1}(y) = p$ ,  $p \in f^{-1}(B_{T}(y,\epsilon))$, then $\exists \delta > 0$ such that,
 \[B_{S}(p,\delta) \subseteq f^{-1}(B_{T}(y,\epsilon)) \Rightarrow f(B_{S}(p,\delta)) \subseteq B_{T}(y,\epsilon)\]
 By definition 4.15, a function $f$ is continuous at $p$ iff $\forall \epsilon > 0, \quad \exists \delta > 0$ such that $ f(B_{S}(p,\delta)) \subseteq B_{T}(f(p),\epsilon)$, and hence we have that $f$ is continuous at $p$.
+$$ $$
 \end{proof}
 
 \begin{theorem}[theorem 4.25]
@@ -125,6 +126,11 @@ Let $f:S \to T$  be a function from one metric space $(S,d_{S})$ to another $(T,
 %Continuous Functions in Metric Spaces: Thm. 4.16, Thm. 4.23, Thm. 4.25
 \end{theorem}
 \begin{proof}
+By Definition 3.30, a set $S$ is compact iff every open covering of $S$ contains a finite subcovering, that is, a finite subcovering that also covers $S$. And by Theorem 3.38, if $S$ is compact then it is also closed and bounded.
+\newline{}
+Hence our goal is to find a finite open subcovering of $f(X)$ and the assertion will be proved. Define $F$ to be an open covering of $f(X)$, so that $f(X) = \cup_{A \in F}A$. Since $f$ is continuous on $S$ and hence every subset of $S$, we can apply Theorem 4.23 to see that $\forall A \in F$, $f^{-1}(A)$ is also open in $(X,d_{S})$. Hence, $X \subseteq \cup_{A \in F}f^{-1}(A) $. Since $X$ is compact, we know by the definition of a compact set that there exists an open subcovering of $X$, hence $X \subseteq \cup_{k = 1}^{n}f^{-1}(A_{k}) $ for $A_{k} \in F$. And hence,
+$$ f(X) \subseteq f(\cup_{k = 1}^{n}f^{-1}(A_{k})) = \cup_{k = 1}^{n}f(f^{-1}(A_{k})) = \cup_{k = 1}^{n}A_{k} $$
+$\Rightarrow$ $f(X) \subseteq\cup_{k = 1}^{n}A_{k}$ and we have found our open subcovering, and hence $f(X)$ is closed and compact in $T$.
 \end{proof}
 
 
