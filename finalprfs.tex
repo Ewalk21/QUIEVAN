@@ -75,8 +75,25 @@ $x \in B(y,R)$ since we found the distance between $y$ and $x$ to be less than $
 Let $F$ be an open covering of a closed and bounded set $A \subseteq \mathbb{R}^n$. Then a finite subcollection of $F$ also covers $A$.
 %Application: you choose
 \end{theorem}
-
 \begin{proof}
+Assume that \(b\) holds.  Now assume that \(F\) is an open covering of the set \(S\). A countable subcollection of \(F\), say \{\(I_1,I_2,\ldots\)\} covers \(S\).  Now we consider the finite union:
+\[S_m = \bigcup\limits_{k=1}^{m} I_k\]
+This set is open since it is the union of open sets.  We shall show that for some value of \(m\) the union \(S_m\) covers \(S\). \\
+Consider the complement \(R^n \backslash S_m\), which is closed.  Now define a countable collection of sets \{\(Q_1,Q_2, \ldots\)\} as follows: \(Q_1 = S\) and for \(m>1\),
+\[Q_m = S\cap (R^n\backslash S_m)\]
+Then \(Q_m\) consists of all those points of \(S\) that are outside of \(S_m\).  Now we just need to show that there is some \(m\) for which \(Q_m\) is empty which will show that for this \(m\) no point of \(S\) lies outside of \(S_m\).
+Consider the following: 
+
+    Each set \(Q_m\) is closed since it is the intersection of closed \(S\) and closed \(R^n\backslash S_m\)
+    
+        The sets \(Q_m\) are decreasing since the \(S_m\) are increasing.  That is: \(Q_{m+1}\subseteq Q_m\). 
+        
+        The sets \(Q_m\) being subsets of \(S\) are all bounded.
+        
+        Therefore, if no set \(Q_m\) is empty we can use the \(Cantor Intersection Theorem\) to conclude that the intersection:
+\[\bigcap\limits_{k=1}^{\infty} Q_k \neq \emptyset\]
+
+    That means that there is some point in \(S\) which is in all the sets \(Q_m\) or outside all of the sets \(S_m\).  But this is a contradiction since \(S\subseteq \bigcup\limits_{k=1}^{\infty} S_k\).  Therefore some \(Q_m\) must be empty.  \(QED\)
 \end{proof}
 
 
@@ -89,8 +106,98 @@ Let $S \subseteq \mathbb{R}^n$. Then the following statements are equivalent
 \end{enumerate}
 %comparison with metric spaces (without proof)
 \end{theorem}
-
 \begin{proof}
+To prove equivalence, we will prove that \(a\) implies \(b\),
+that \(b\) implies \(c\), that \(c\) implies \(b\), \(b\) implies \(a\), aka \(Thm3.29\),
+the \(Heine-Borel\) theorem. Once these parts are proven, we will
+have equivalence of the statements.
+
+    \(a\implies b\)
+
+    Assume that \(S\) is compact. First we will prove that \(S\) is bounded.
+For some \(p\in S\) \(\exists\) \(T\):= a collection of \(n\)-balls:
+\(B(p,k), k=1,2,3\ldots\) such that \(T\) is an open covering of the
+space \(S\). Since \(S\) is compact, there is a finite subset of that
+collection that is still an open covering of \(S\). Therefore, \(S\) is
+bounded. :)
+
+    Next we must prove that \(S\) is closed. This will be done through
+contradiction so first assume that \(S\) is not closed. Then
+\(\exists y \notin S\) where \(y\) is an accumulation point of \(S\).
+Now lets say \(\exists x\in S\) and let \(r_x = \frac{\| x-y\|}{2}\)
+(half of the distance between x and y) We know that each radius \(r_x\)
+is positive since \(y\notin S\), and the collection fo balls
+\(B(x,r_x)\) is an open covering of \(S\). Since we know that \(S\) is
+compact, there is a finite number, \(n\) of these balls that still
+covers \(S\) which is basically the union of all of the balls.
+\[S\subset \bigcup\limits_{k=1}^{n} B(x_k,r_k)\] We have a finite number
+of radii since we have a finite number of balls so lets say \(r\) is the
+smallest radius. Now we want to prove that \(B(y,r)\) has no points in
+common with any of the other balls that cover
+\(S\left(B\left(x_k,r_k\right)\right)\) So if we assume \(x\in B(y,r)\)
+then \(\| x-y\| <r<r_k\). So by the triangle inequality, we have:
+\[\| y-x_k\|\leq\| y-x\| +\| x-x_k\| \]
+\[\Rightarrow \| x-x_k\|\geq\| y-x_k\| -\| x-y\| = 2r_k-\| x-y\| >r_k\]
+\[\Rightarrow x\notin B(x_k,r_k)\Rightarrow B(y,r)\cap S = \emptyset\]
+\(\Rightarrow\Leftarrow\) Contradicts the fact that \(y\) is an
+accumulation point This shows that \(S\) is therefore closed and
+\(a\implies b\) \(\checkmark\)
+
+    \(b\implies a\) (aka the \(Heine-Borel Theorem\))
+    
+    Proved in number 3
+
+    \(b\implies c\)
+
+    Assume that \(b\) holds. This will be used to prove \(c\): Every
+infinite subset of \(S\) has an accumulation point in \(S\). If \(T\) is
+an infinite subset of \(S\), since S is bounded, \(T\) must also be
+bounded because \(T\) is a subset of \(S\). By the
+\(Bolzano Weierstrass Theorem\), if a bounded set in \(R^n\) contains
+infinitely many points, then there is at least one point in \(R^n\)
+which is an accumulation point of \(S\). Lets name that accumulation in
+\(T\), \(x\). Since \(S\) is closed, we know that the accumulation point
+of \(T\) is also the accumulation point of \(S\).
+\(\Rightarrow b\implies c\) \(\checkmark\)
+
+    \(c\implies b\)
+
+    Assume that \(c\) holds. \(\rightarrow\) every infinite subset of \(S\)
+has an accumulation point in \(S\). We want to prove \(b\) which says
+that \(S\) is closed and bounded. First, we are going to say that \(S\)
+is unbounded, and prove by contradiction. So assume that \(S\) is
+unbounded \(\Rightarrow \forall m>0\exists x_m\in S\) such that
+\(\| x_n\| >m\) There is a collection of points \(T:=\)
+\{\(x_1,x_2,\ldots\)\} that is an infinite subset of \(S\), and since we
+are assuming \((c)\), \(T\) has an accumulation point \(y\in S\). For
+\(m>1+\| y\|\) we have: \[\| x_m-y\| \geq\| x_m\| -\|y \| >m-\|y \| >1\]
+This contradicts the fact that \(y\) is an accumulation point of \(T\).
+Therefore, \(S\) is bounded. :)
+
+    Next we have to prove that \(S\) is closed. Let \(x\) be an accumulation
+point of \(S\). Since every set containing a ball with center \(x\)
+contains infinitely many points of \(S\), we can consider
+\(B(x,\frac{1}{k})\), where \(k = 1,2,3,\ldots\), and get a countable
+set of distinct points, \(T:=\) \{\(x_1,x_2,\ldots\)\}\(\subset S\),
+such that \(x_k\in B(x,\frac{1}{k})\) The point \(x\) is also an
+accumulation point of \(T\) since \(T\subset S\) Since \(T\) is an
+infinite subset of \(S\), \((c)\) tells us that \(T\) must have an
+accumulation point in \(S\) Next, we have to prove that \(x\) is the
+only accumulation point of \(T\). Suppose that \(y\ne x\). By the
+triangle inequality we have:
+\[\| y-x\| \leq\| y-x_k\| +\|x_k-x\| <\| y-x_k\| +\frac{1}{k} \mid x_k\in T\]
+If \(k_0\) is taken to be $k_{0} = \lfloor \frac{2}{\|y-x\|} \rfloor \Rightarrow$ \(\frac{1}{k}<\frac{1}{2}\| y-x\|\)
+whenever \(k\geq k_0\), the last inequality leads to
+\(\frac{1}{2}\| y-x\| <\| y-x_k\|\) \(\implies x_k\notin B(y,r)\) when
+\(k\geq k_0\) if \(r=\frac{1}{2}\| y-x\|\) \(\implies y\) is not an
+accumulation point of \(T\). \(\checkmark\)
+\(QED\)
+\newline{}
+Theorem 3.31 does not hold in a general metric space.  This is because the requirements for a metric space to be compact are more rigorous than the requirements for a euclidean space.  In a metric space \(M=(S,d)\) \(M\) must be both complete and totally bounded.  This means that \(M\) must have the property that every Cauchy sequence in \(M\) converges in \(M\), and it must be possible to cover \(M\) with a finite number of balls with of fixed size.  For this reason, we still have that \(a\implies b\) but the theorem will fail when we try to prove that \(b\implies a\).  
+    
+    Consider the metric space \(R^2\backslash (0,0)\) with the usual metric from \(R^2\).  The set 
+    \[D=\{(x,y)\mid 0<x^2+y^2\leq 1\}\]
+    is closed and bounded since it is the interior of the unit circle.  But \(D\) is not compact since it will "want" to converge to \((0,0)\) but \((0,0)\) is not an element of the metric so it is not compact hence \(b\) does not imply \(a\).  Therefore, Theorem 3.31 does not apply to the general metric space.  
 \end{proof}
 
 
@@ -227,7 +334,18 @@ Let $f$ be defined on $[a,b]$ in such a way that at least one of the functions $
 %Riemann-Stieljes: 7.8, 7.9, 7.12 with examples
 \end{theorem}
 \begin{proof}
-
+if $c \in P$, every term in the sum $S(P,f,\alpha)$ is zero except the two terms arising from the subinterval separated by $c$. To account the nonzero terms, write
+$$S(P,f,\alpha) = f(t_{k-1})[\alpha(c) - \alpha(c-)] + f(t_{k})[\alpha(c+) - \alpha(c)] $$
+where $t_{k-1} \leq c \leq t_{k}$. Consider subtracting by
+$f(c)[\alpha(c+)- \alpha(c-)]$ on both sides of the above equation,
+$$S(P,f,\alpha) - f(c)[\alpha(c+)- \alpha(c-)] = \Delta = (f(t_{k-1})-f(c))[\alpha(c) - \alpha(c-)] + (f(t_{k})-f(c))[\alpha(c+) - \alpha(c)] $$
+Hence we have the following about $\Delta$
+$$\left| \Delta \right| \leq \left| f(t_{k-1})-f(c) \right| \left| \alpha(c) - \alpha(c-) \right| + \left| f(t_{k})-f(c) \right| \left| \alpha(c+) - \alpha(c) \right|$$
+With respect to $\left| \Delta \right|$, if $f$ is continuous at $c,\Rightarrow \quad \forall \epsilon > 0, \quad \exists \delta > 0$ such that $\| P \| > \delta$ implies
+$$ \left| f(t_{k-1})-f(c) \right| < \epsilon \quad \textrm{ and } \quad \left| f(t_{k})-f(c) \right| < \epsilon$$
+Substituting our inequalities back into our equation for $\left| \Delta \right|$ we get,
+$$\left| \Delta \right| \leq \epsilon \left| \alpha(c) - \alpha(c-) \right| + \epsilon \left| \alpha(c+) - \alpha(c) \right|$$
+This inequality holds true whether or not $f$ is continuous at $c$. By changing $f$'s continuity from the left or right, we change the above inequality. If discontinuous from both sides at $c$, then $\Delta = 0$. If discontinuous from the right at $c$, then $\alpha(c) = \alpha(c+)$ and if discontinuous from the left at $c$, then $\alpha(c) = \alpha(c-)$. Either way, the assertion is proved.
 \end{proof}
 
 \begin{theorem}[7.12]
@@ -239,6 +357,7 @@ where $[x]$ is the greatest integer $\leq x$.
 %Riemann-Stieljes: 7.8, 7.9, 7.12 with examples
 \end{theorem}
 \begin{proof}
+The greatest integer function is a type of step-function, hence $d[x]$ is continuous from the right and jumps 1 at each integer by definition of $[x]$. The function $f$ is continuous from the left at $1,2,...,n$ by construction of $f$. Hence we meet the conditions to apply Theorem 7.11, and the sum can therefore be written as a Riemann-Stieljes integral.
 \end{proof}
 
 The following three proofs are with respect to problem 9
@@ -283,6 +402,18 @@ If $|x| < 1$, the series $1 + x + x^2 + ... $  converges and has the sum $\frac{
 %Convergence Test: Thms 8.22, 8.23,8.25,8.26 with Examples
 \end{theorem}
 \begin{proof}
+the series can be written in summation form by $\sum_{k=0}^{n}x^k$, and by multiplying it by $1-x$, we can simply our sum to be in terms of only $x$ and $n$,
+    $$(1-x)\sum_{k=0}^{n}x^k = \sum_{k=0}^{n}x^k - x\sum_{k=0}^{n}x^k$$
+    $$\qquad = \sum_{k=0}^{n}(x^k - x^{k+1})$$
+    $$ = 1-x^{n+1}$$
+    dividing $(x-1)$ on both sides, we get
+    $$\qquad \sum_{k=0}^{n}x^k = \frac{1-x^{n+1}}{(1-x)}$$
+if $ \left| x \right| < 1$ and as $n \rightarrow \infty$ we have that
+$$lim_{n \rightarrow \infty}x^{n+1} = 0$$
+and hence
+$$lim_{n \rightarrow \infty}\frac{1-x^{n+1}}{(1-x)}=\frac{1}{(1-x)}$$
+if $ \left| x \right| \geq 1 \quad \Rightarrow$ as $n \rightarrow \infty$, we have that
+$lim_{n \rightarrow \infty}x^{n+1}$ diverges and hence $\frac{1-x^{n+1}}{(1-x)}$ diverges
 \end{proof}
 
 \begin{theorem}[8.23 integral test]
@@ -298,6 +429,19 @@ Then we have:
 %Convergence Test: Thms 8.22, 8.23,8.25,8.26 with Examples
 \end{theorem}
 \begin{proof}
+\newline{}
+\begin{enumerate}[\upshape a)]
+    \item $$t_{n+1} = \int_{1}^{n+1}f(x)dx = \sum_{k=1}^{n}\int_{k}^{k+1}f(x)dx \leq \sum_{k=1}^{n}\int_{k}^{k+1}f(k)dx = \sum_{k=1}^{n}f(k) = s_n$$
+Which implies that $f(n+1) = s_{n+1}-s_n \leq s_{n+1}-t_{n+1} = d_{n+1}$ $\Rightarrow$ $0<f(n+1)\leq d_{n+1}$.
+But we also have: $$d_n-d_{n+1} = t_{n+1} - t_n - (s_{n+1}-s_n) = \int_{n}^{n+1}f(x)dx - f(n+1) \geq \int_{n}^{n+1}f(n+1)dx - f(n+1)=0$$
+Therefore $d_{n+1}\leq d_n \leq d_1 = f(1)$.  $\checkmark$
+    \item In a), we proved that $0<f(n+1)\leq d_{n+1}\leq d_n\leq f(1)$ so $\lim_{n\to \infty}d_n$ must exist since the sequence is always decreasing but has a lower bound. $\checkmark$
+    \item Since $b$ is true, we know that since $d_n$ converges then $s_n$ and $t_n$ converge as well, so $\sum_{n=1}^{\infty}f(n)$ converges whenever $\int_{1}^{\infty}f(x)dx$ converges. $\checkmark$
+    \item From above we can write:
+$$0\leq d_n-d_{n+1}\leq \int_{n}^{n+1}f(n)dx-f(n+1)=f(n)-f(n+1)$$
+$$\textrm{and summing on n: } 0\leq \sum_{n=k}^{\infty}(d_n-d_{n+1})\leq \sum_{n=k}^{\infty}(f(n)-f(n+1)) \quad \textrm{if } k\geq 1$$
+Each part of that inequality telescopes and breaks down into: $0\leq d_k-\lim_{n\to \infty}d_n\leq f(k)$ $\checkmark$
+\end{enumerate}
 \end{proof}
 
 \begin{theorem}[8.25 ratio test]
