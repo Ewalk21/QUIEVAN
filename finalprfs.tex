@@ -36,9 +36,19 @@ $$[a,\frac{a+b}{2}] \quad \textrm{ and }  \quad [\frac{a+b}{2},b]$$
 may either both contain infinitely many points or only one contains infinitely many points. Now define $[a_{1},b_{1}]$ to be one of the previously stated intervals with infinitely many points. Then
 $$[a_{1},\frac{a_{1}+b_{1}}{2}] \quad \textrm{ and }  \quad [\frac{a_{1}+b_{1}}{2},b_{1}]$$
 again may either both contain infinitely many points or only one contains infinitely many points. Repeating this process $k$ times, we arrive at an interval $[a_{k},b_{k}]$
-such that $sup(a_{k}) = inf(b_{k}) = x$ for some $x \in S$. We aim to show that $x$ is an accumulation point of $S$. Consider $k$ to be large enough such that $b_{k} - a_{k} < \frac{r}{2}$, $\Rightarrow [a_{k},b_{k}] \subseteq B(x,r)$. Since, by construction, $B(x,r)$ contains infinitely many points, $(B(x,r) - \{x\}) \cap S \ne \emptyset$ and hence $x$ is an accumulation point of $S$.
+such that $$sup(a_{k}) = inf(b_{k}) = x$$ where $x \in S$. We aim to show that $x$ is an accumulation point of $S$. Consider $k$ to be large enough such that $b_{k} - a_{k} < \frac{r}{2}$, $\Rightarrow [a_{k},b_{k}] \subseteq B(x,r)$. Since, by construction, $B(x,r)$ contains infinitely many points, $(B(x,r) - \{x\}) \cap S \ne \emptyset$ and hence $x$ is an accumulation point of $S$.
 \newline{}
-(Case $n=2$,$\quad \mathbb{R}^{2}$) Let $S \subset \mathbb{R}^{2}$ and $S$ bounded, $\Rightarrow$ since $S$ is bounded, $S$ lies completely within an interval $[a,b]$
+\newline{}
+(Case $n=2$,$\quad \mathbb{R}^{2}$) Let $S \subset \mathbb{R}^{2}$ and $S$ bounded, $\Rightarrow$ since $S$ is bounded, $S$ lies completely within a 2-dimensional interval $J$ defined by the cartesian product of two 1-dimensional intervals.
+$$J_{1} = [a,b] \times [a,b]$$
+similar to the case for $n=1$ above, we continually divide the interval into halfs, choosing the interval with infinitely many points. Let $I_{1}^{(1)} = [a,b]$, and $I_{2}^{(1)} = [a,b]$, Then let the next division of the interval be $I_{1}^{(2)} = [a,\frac{a+b}{2}] \textrm{ or } [\frac{a+b}{2},b] = [a_{1},b_{1}]$, and $I_{2}^{(2)} = [a,\frac{a+b}{2}] \textrm{ or } [\frac{a+b}{2},b] = [a_{2},b_{2}]$, Again choosing whichever interval has infinitely many points. If they both contain infinitely many points, our choice is arbitrary. Hence, define $J_{n} = I_{1}^{n} \times I_{2}^{n}$. For a large enough $n$, we have that $J_{n}$ has the property that
+$$sup(a_{1}^{(n)}) = inf(b_{1}^{(n)}) = x_{1} \quad \textrm{ and } \quad sup(a_{2}^{(n)}) = inf(b_{2}^{(n)}) = x_{2}$$
+We assert that $x=(x_{1}, x_{2})$ is an accumulation point of $S$. Note that $b_{k}^{(n)}-a_{k}^{(n)} = \frac{a}{2^{n-2}}$ for $k = 1,2$. take a ball in $\mathbb{R}^{2}$, $B(x,r)$ and let n be large enough such that $\frac{a}{2^{n-2}} < \frac{r}{2}$. Hence $J_{n} \subseteq B(x,r)$, $\Rightarrow$ $B(x,r)$ also contains infinitely many points and we have that,
+$$ (B(x,r)- \{x\}) \cap S \ne \emptyset $$
+This proves that $x$ is an accumulation point of $S$.
+
+
+
 \end{proof}
 
 
