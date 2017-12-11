@@ -23,7 +23,7 @@
 
 \maketitle
 
-
+\underline{\textbf{Problem 1.}}
 \begin{theorem}[3.24 Bolzano-Weierstrass]
 If a bounded set $S \subseteq \mathbb{R}^n$ contains infinitely many points, then there is at least one point in $\mathbb{R}^n$ which is an accumulation point of $S$.
 %Application: Thm. 3.25 Cantor Intersection Theorem
@@ -46,12 +46,35 @@ $$sup(a_{1}^{(n)}) = inf(b_{1}^{(n)}) = x_{1} \quad \textrm{ and } \quad sup(a_{
 We assert that $x=(x_{1}, x_{2})$ is an accumulation point of $S$. Note that $b_{k}^{(n)}-a_{k}^{(n)} = \frac{a}{2^{n-2}}$ for $k = 1,2$. take a ball in $\mathbb{R}^{2}$, $B(x,r)$ and let n be large enough such that $\frac{a}{2^{n-2}} < \frac{r}{2}$. Hence $J_{n} \subseteq B(x,r)$, $\Rightarrow$ $B(x,r)$ also contains infinitely many points and we have that,
 $$ (B(x,r)- \{x\}) \cap S \ne \emptyset $$
 This proves that $x$ is an accumulation point of $S$.
+\newline{}
+\end{proof}
 
-
-
+\textbf{Applications of 3.24}
+\begin{theorem}[3.25 The Cantor Intersection Theorem]
+Let $\{Q_{1}, Q_{2},...\}$ be a countable collection of nonempty sets in $\mathbb{R}^2$ such that.
+\begin{enumerate}[\upshape i)]
+\item $Q_{k+1} \subseteq Q_{k} \qquad (k=1,2,3,...)$
+\item Each set $Q_{k}$ is closed and $Q_{1}$ is bounded
+\end{enumerate}
+$\Longrightarrow \quad \cap_{k=1}^{\infty}Q_{k} \ne \emptyset$ and is closed.
+\end{theorem}
+\begin{proof}
+(Case 1: $Q_{m} = Q_{k} \quad \forall m \geq k$)
+\newline{}
+$\Rightarrow \quad Q_{k+2} \subseteq Q_{k+1} \subseteq Q_{k} \subseteq ... Q_{2} \subseteq Q_{1} \Rightarrow$
+$\cap_{n=1}^{\infty} Q_{n} = Q_{k} \ne \emptyset$
+\newline{}
+(Case 2: $Q_{k+1} \nsubseteq Q_{k}$)
+\newline{}
+$\Rightarrow$ we can build $A=\{x_{1},x_{2},x_{3}, ... , x_{k},...\}$, an infinite set. where
+$x_{k} \in Q_{k}\setminus Q_{k+1} \quad x_{k} \in Q_{k}$. $\Rightarrow \textrm{(by the Bolzano-Weierstrass Theorem)}\quad \exists x \in \mathbb{R}^2 \textrm{  such that } x$ is an accumulation point of A. We want to show
+$x \in \cap_{k=1}^{\infty}Q_{k}$. since $x$ is an accumulation point of $A$, $x$ is also an accumulation point for $Q_{k} \quad \forall k$. Since $Q_{k}$ is closed, it contains all of its accumulation points $\Rightarrow x\in Q_{k}$ and therefore
+$x \in \cap_{k=1}^{\infty}Q_{k}$.\newline{}
+$$ $$
 \end{proof}
 
 
+\underline{\textbf{Problem 2.}}
 \begin{theorem}[3.27] \nonumber
 Let $G = \{A_{1},A_{2},...\}$ denote the countable collection of all n-balls having rational radii and centers at points with rational coordinates. Assume $x \in \mathbb{R}^n$ and let $S$ be an open set in $\mathbb{R}^n$ and $x \in S$. Then $x \in A_{k} \subseteq S$ for some $k$. That is, $x$ is contained by some n-ball in $G$ which is contained by $S$.
 %Application: Thm 3.28 (Lindeloff Covering Theorem)
@@ -69,14 +92,24 @@ Then
 Let us define $R$ as a rational number such that $\frac{r}{4} < R < \frac{r}{2}$. Then
 $x \in B(y,R)$ since we found the distance between $y$ and $x$ to be less than $r/4$, so surely $x$ must be contained in $B(y,R)$. By the same reasoning, we have that $B(y,R) \subseteq B(x,r) \subseteq S$. since both $y$ and $R$ are rational by construction, we have that $B(y,R) \in G$. Hence, we've proved the assertion.
 \end{proof}
+\textbf{Applications of 3.27}
+\begin{theorem}[3.28 Lindeloff Covering Theorem]
+Assume $A\subseteq \mathbb{R}^n$ and let $f$ be an open covering of $A$. Then: $\exists$ a countable subcollection of $f$ that also covers $A$.  $$A\subseteq \cup_{S\in f'}S$$
+\end{theorem}
+\begin{proof}
+Let $G=\{A_1,A_2, \ldots ,A_k\ldots \}$ countable subset of $B_n(y,q)$ where $y$ and $q$ are both rational numbers.  Then take $x\in A \quad \Rightarrow \quad \exists S \in f$ such that $x\in S \subset \mathbb{R}^n$ Where S is an open subset.  Therefore, we can use Theorem 3.27 to say: $$\exists A_k \in G \textrm{ such that } x\in A_k\subseteq S$$
+Define $m=m(x)=min\{k|x\in A_k,A_k\in G\}$  
+$$G'=\{A_{m(x)}|x\in A\}  \iff f'=\{S|A_{m(x)}\in S\}$$
+Both $G'$ and $f'$ are countable so: $$\Rightarrow \quad A\subseteq \cup_{S\in f'}S$$
+\end{proof}
 
-
+\underline{\textbf{Problem 3}}
 \begin{theorem}[3.29 Heine-Borel]
-Let $F$ be an open covering of a closed and bounded set $A \subseteq \mathbb{R}^n$. Then a finite subcollection of $F$ also covers $A$.
+Let $F$ be an open covering of a closed and bounded set $S \subseteq \mathbb{R}^n$. Then a finite subcollection of $F$ also covers $S$.
 %Application: you choose
 \end{theorem}
 \begin{proof}
-Assume that \(b\) holds.  Now assume that \(F\) is an open covering of the set \(S\). A countable subcollection of \(F\), say \{\(I_1,I_2,\ldots\)\} covers \(S\).  Now we consider the finite union:
+Assume that \(F\) is an open covering of the set \(S\). A countable subcollection of \(F\), say \{\(I_1,I_2,\ldots\)\} covers \(S\).  Now we consider the finite union:
 \[S_m = \bigcup\limits_{k=1}^{m} I_k\]
 This set is open since it is the union of open sets.  We shall show that for some value of \(m\) the union \(S_m\) covers \(S\). \\
 Consider the complement \(R^n \backslash S_m\), which is closed.  Now define a countable collection of sets \{\(Q_1,Q_2, \ldots\)\} as follows: \(Q_1 = S\) and for \(m>1\),
@@ -93,10 +126,12 @@ Consider the following:
         Therefore, if no set \(Q_m\) is empty we can use the \(Cantor Intersection Theorem\) to conclude that the intersection:
 \[\bigcap\limits_{k=1}^{\infty} Q_k \neq \emptyset\]
 
-    That means that there is some point in \(S\) which is in all the sets \(Q_m\) or outside all of the sets \(S_m\).  But this is a contradiction since \(S\subseteq \bigcup\limits_{k=1}^{\infty} S_k\).  Therefore some \(Q_m\) must be empty.  \(QED\)
+    That means that there is some point in \(S\) which is in all the sets \(Q_m\) or outside all of the sets \(S_m\).  But this is a contradiction since \(S\subseteq \bigcup\limits_{k=1}^{\infty} S_k\).  Therefore some \(Q_m\) must be empty.
 \end{proof}
+\textbf{Applications of 3.29} \newline
+The Heine-Borel Theorem always applies when in a Euclidean space $R^n$, but if an extra condition is added then it will apply in any metric space.  In a metric space \(M=(S,d)\) \(M\) must be both complete and totally bounded.  This means that \(M\) must have the property that every Cauchy sequence in \(M\) converges in \(M\), and it must be possible to cover \(M\) with a finite number of balls with of fixed size.  So having your space be closed and bounded takes care of half but for the theorem to hold in a metric space the hypothesis must also require that the metric space be complete.\newline{}
 
-
+\underline{\textbf{Problem 4}}
 \begin{theorem}[3.31]
 Let $S \subseteq \mathbb{R}^n$. Then the following statements are equivalent
 \begin{enumerate}[\upshape a)]
@@ -108,7 +143,7 @@ Let $S \subseteq \mathbb{R}^n$. Then the following statements are equivalent
 \end{theorem}
 \begin{proof}
 To prove equivalence, we will prove that \(a\) implies \(b\),
-that \(b\) implies \(c\), that \(c\) implies \(b\), \(b\) implies \(a\), aka \(Thm3.29\),
+that \(b\) implies \(c\), that \(c\) implies \(b\), \(b\) implies \(a\) by \(Thm3.29\),
 the \(Heine-Borel\) theorem. Once these parts are proven, we will
 have equivalence of the statements.
 
@@ -143,7 +178,7 @@ then \(\| x-y\| <r<r_k\). So by the triangle inequality, we have:
 accumulation point This shows that \(S\) is therefore closed and
 \(a\implies b\) \(\checkmark\)
 
-    \(b\implies a\) (aka the \(Heine-Borel Theorem\))
+    \(b\implies a\) by the \(Heine-Borel Theorem\)
     
     Proved in number 3
 
@@ -201,7 +236,7 @@ Theorem 3.31 does not hold in a general metric space.  This is because the requi
 \end{proof}
 
 
-The next 3 theorems are with respect to problem 5.
+\underline{\textbf{The next 3 theorems are with respect to problem 5.}}
 \begin{theorem}[theorem 4.16]
 Let $f:S \to T$  be a function from one metric space $(S,d_{S})$ to another $(T,d_{T})$, and assume $p \in S$. Then $f$ is continuous at $p$ iff for every sequence $\{x_{n}\}$ in $S$ convergent to $p$, the sequence $\{f(x_{n})\}$ in $T$ converges to $f(p)$. Symbolically,
 \[\lim_{n \to \infty} f(x_{n}) = f(\lim_{n \to \infty} x_{n})\]
@@ -209,8 +244,22 @@ Let $f:S \to T$  be a function from one metric space $(S,d_{S})$ to another $(T,
 \end{theorem}
 \begin{proof}
 ($\Longrightarrow$) Assume that $f$ is continuous at $p$. The definition of continuity at a point states that for every $\epsilon > 0$ there is a $\delta >0$ such that,
-\[d_{T}(f(x),f(p)) < \delta \qquad \textrm{  whenever  } d_{S}(x,p) < \delta\]
-And if every sequence $\{x_{n}\} \rightarrow p$ in $S$, then  $\forall \delta > 0 \quad \exists N$ s.t. $$d_{S}(x_{n},p) < \delta, \qquad \textrm{ whenever } n \geq N$$
+\[d_{T}(f(x),f(p)) < \epsilon \qquad \textrm{  whenever  } d_{S}(x,p) < \delta\]
+By Definition 4.1(def convergence) if the sequence $\{x_{n}\} \rightarrow p$ in $S$, then  $\forall \delta > 0 \quad \exists N$ s.t. $$d_{S}(x_{n},p) < \delta, \qquad \textrm{ whenever } n \geq N$$
+Hence, we have that
+$$d_{T}(f(x_{n}),f(p)) < \epsilon \quad \textrm{ (By Definition 4.15(continuity))}$$
+and therefore, by using Definition 4.1 twice
+$$\lim_{n \to \infty} f(x_{n}) = f(p) $$
+$$\lim_{n \to \infty} f(x_{n}) = f(\lim_{n \to \infty}x_{n}) $$
+($\Longleftarrow$) Assume $\{f(x_{n})\} \to f(p)$ in $T$ and %$\{x_{n}\} \to p$ in $S$.%
+Then by Definition 4.1, we have
+\[d_{T}(f(x_{n}),f(p)) < \epsilon \qquad \textrm{for } \epsilon > 0\]%\qquad d_{S}(x_{n},p) < \delta\]
+By Definition 4.11, we have that when $\lim_{n \to \infty}f(x_{n}) = f(p), \forall \epsilon > 0 \quad \exists \delta >0 $ such that
+\newline{}
+$d_{T}(f(x_{n}),f(p)) < \epsilon \quad \textrm{ whenever } d_{S}(x_{n},p) < \delta$, and hence $\delta$ is defined by $\epsilon$. Therefore we have that $\forall \epsilon > 0, \quad \exists \delta > 0$ such that
+\[d_{T}(f(x),f(p)) < \epsilon \qquad \textrm{  whenever  } d_{S}(x,p) < \delta\]
+and hence, $f$ is continuous at $p$.
+
 \end{proof}
 
 \begin{theorem}[theorem 4.23]
@@ -239,9 +288,10 @@ Hence our goal is to find a finite open subcovering of $f(X)$ and the assertion 
 $$ f(X) \subseteq f(\cup_{k = 1}^{n}f^{-1}(A_{k})) = \cup_{k = 1}^{n}f(f^{-1}(A_{k})) = \cup_{k = 1}^{n}A_{k} $$
 $\Rightarrow$ $f(X) \subseteq\cup_{k = 1}^{n}A_{k}$ and we have found our open subcovering, and hence $f(X)$ is closed and compact in $T$.
 $$ $$
+$$ $$
 \end{proof}
 
-
+\underline{\textbf{Problem 6}}
 \begin{theorem}[Uniform Continuity Thm. 4.47 (Heine)]
 Let $f:S \to T$ be a function from one metric space $(S,d_{S})$ to another $(T,d_{T})$. Let $A$ be a compact subset of $S$ and assume that $f$ is continuous on $A$. Then $f$ is uniformly continuous on $A$.
 \end{theorem}
@@ -260,9 +310,10 @@ Hence, $d_{S}(p,a_{k}) \leq r_{k}$ and thus $p \in B_{S}(a_{k},r_{k}) \cap S$. U
 $$d_{T}(f(x),f(p)) \leq d_{T}(f(x),f(a_{k})) + d_{T}(f(a_{k}), f(p)) < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon$$
 hence we have that $d_{T}(f(x),f(p)) < \epsilon$ and $d_{S}(x,p) < \delta$, thus fulfilling the condition for uniform continuity.
 $$ $$
+$$ $$
 \end{proof}
 
-The following 2 theorems are with respect to problem 7
+\underline{\textbf{The following 2 theorems are with respect to problem 7}}
 \begin{theorem}[Thm 5.10 (Rolle)]
 Let $f$ be a functions, having a derivative (finite or infinite) at each point
 of an open interval $(a,b)$ and continuous at the endpoints $a$ and $b$. if $f(a)=f(b)$, then there is at least one interior point c at which
@@ -271,7 +322,7 @@ of an open interval $(a,b)$ and continuous at the endpoints $a$ and $b$. if $f(a
 \end{theorem}
 \begin{proof}
 Assume $f^\prime(x) \neq 0 \quad \forall x \in (a,b)$, we want to arrive at a contradiction. Since $f$ is continuous on a compact interval $(a,b)$, $\exists c_{1},c_{2} \in (a,b)$ such that $$f(c_{1}) = min(f(x)) \quad \textrm{ and } \quad f(c_{2}) = max(f(x))$$
-by Theorem 5.9, $c_{1}, c_{2}$ cannot be interior points since this implies $f^\prime(c_{1}) = 0$ and $f^\prime(c_{2}) = 0$. This implies that $f(c_{1})$ and $f(c_{2})$ are endpoints. Since $f(a) = f(b) \Rightarrow f(c_{1}) = f(c_{2})$ and hence $f$ is constant on $[a,b]$. However this contradicts our assumption that $f^\prime(x) \neq 0 \quad \forall x \in (a,b)$. Therefore $f^\prime(c) = 0$ for some $c \in (a,b)$.
+by Theorem 5.9, $c_{1}, c_{2}$ cannot be interior points since this implies $f^\prime(c_{1}) = 0$ and $f^\prime(c_{2}) = 0$. This implies that $f(c_{1})$ and $f(c_{2})$ are endpoints. Since $f(a) = f(b) \Rightarrow f(c_{1}) = f(c_{2})$ and hence $f$ is constant on $[a,b]$. However this contradicts our assumption that $f^\prime(x) \neq 0 \quad \forall x \in (a,b)$. Therefore $f^\prime(c) = 0$ for some $c \in (a,b)$.\newline{}
 \end{proof}
 
 \begin{theorem}[Thm 5.12 (Generalized Mean Value)]
@@ -292,11 +343,34 @@ So $h(a) = h(b)$, $ \Rightarrow $ by Rolle's theorem we have that $\exists $ $c$
 \[h^\prime(c) = f^\prime(c)[g(b) - g(a)] - g^\prime(c)[f(b) - f(a)] = 0\]
 $ \Rightarrow $
 \[f^\prime(c)[g(b)-g(a)] = g^\prime(c)[f(b)-f(a)]\]
-This proves the assertion.
+This proves the assertion.\newline{}
 \end{proof}
 
-%\section{The following three proofs are with respect to problem 8}
-The following three proofs are with respect to problem 8
+\textbf{Applications of 5.12}
+\begin{theorem}[Mean-Value Theorem(5.11)]
+Assume that $f$ has a derivative (finite or infinite) at each point of $(a,b)$, and assume that $f$ is continuous at both endpoints $a$ and $b$. Then $\exists c \in (a,b)$ such that
+\[f(b) - f(a) = f^\prime(c)(b-a)\]
+\end{theorem}
+\begin{proof}
+Consider Theorem 5.12, The General Mean-Value Theorem. We have that
+\[f^\prime(c)[g(b)-g(a)] = g^\prime(c)[f(b)-f(a)]\]
+Letting $g(x) = x$, then if we can find $g^\prime(x)$ we could  substitute and simplify to get 
+\[f(b) - f(a) = f^\prime(c)(b-a)\]
+Let's first find $g^\prime(x)$
+\begin{equation} \label{eq1}
+\begin{split}
+$g'(x)$ &= $ \lim_{x \to c} \displaystyle \frac{g(x) - g(c)}{x - c} $ \nonumber \\
+&= $\lim_{x \to c} \displaystyle \frac{x - c}{x - c}$ \nonumber \\
+&= 1
+\end{split}
+\end{equation}
+Now substituting $g(x) = x$ and $g^\prime(x) = 1$ into the result of Theorem 5.12 we get,
+\[f^\prime(c)[b - a] =1[f(b)-f(a)]\]
+After little simplification, we get exactly what we wanted,
+\[f(b)-f(a) =f^\prime(c)(b - a)\]
+\end{proof}
+
+\underline{\textbf{The next 3 theorems are with respect to problem 8.}}
 \begin{theorem}[7.8]
 Assume $f \in R(\alpha)$ on $[a,b]$ and assume that $\alpha$ has a continuous derivative $\alpha^\prime$ on $[a,b]$. Then the Riemann integral $\int_{a}^{b} f(x) \alpha^\prime(x)dx$ exists and we have
 \[\int_{a}^{b} f(x) d\alpha(x) = \int_{a}^{b} f(x) \alpha^\prime(x)dx\]
@@ -321,7 +395,7 @@ Since $f \in R(\alpha)$ on $[a,b]$, $\exists P_{\epsilon}^{\prime \prime}$ such 
 $$ \left| S(P,f,\alpha)-\int_{a}^{b}fd\alpha \right| < \frac{\epsilon}{2} $$
 Hence, combining the last two inequalities we have that
 $$ \left| S(P,g)-\int_{a}^{b}fd\alpha \right| < \epsilon $$
-This proves the assertion.
+This proves the assertion.\newline{}
 \end{proof}
 
 \begin{theorem}[7.9]
@@ -345,7 +419,7 @@ With respect to $\left| \Delta \right|$, if $f$ is continuous at $c,\Rightarrow 
 $$ \left| f(t_{k-1})-f(c) \right| < \epsilon \quad \textrm{ and } \quad \left| f(t_{k})-f(c) \right| < \epsilon$$
 Substituting our inequalities back into our equation for $\left| \Delta \right|$ we get,
 $$\left| \Delta \right| \leq \epsilon \left| \alpha(c) - \alpha(c-) \right| + \epsilon \left| \alpha(c+) - \alpha(c) \right|$$
-This inequality holds true whether or not $f$ is continuous at $c$. By changing $f$'s continuity from the left or right, we change the above inequality. If discontinuous from both sides at $c$, then $\Delta = 0$. If discontinuous from the right at $c$, then $\alpha(c) = \alpha(c+)$ and if discontinuous from the left at $c$, then $\alpha(c) = \alpha(c-)$. Either way, the assertion is proved.
+This inequality holds true whether or not $f$ is continuous at $c$. By changing $f$'s continuity from the left or right, we change the above inequality. If discontinuous from both sides at $c$, then $\Delta = 0$. If discontinuous from the right at $c$, then $\alpha(c) = \alpha(c+)$ and if discontinuous from the left at $c$, then $\alpha(c) = \alpha(c-)$. Either way, the assertion is proved.\newline{}
 \end{proof}
 
 \begin{theorem}[7.12]
@@ -358,22 +432,42 @@ where $[x]$ is the greatest integer $\leq x$.
 \end{theorem}
 \begin{proof}
 The greatest integer function is a type of step-function, hence $d[x]$ is continuous from the right and jumps 1 at each integer by definition of $[x]$. The function $f$ is continuous from the left at $1,2,...,n$ by construction of $f$. Hence we meet the conditions to apply Theorem 7.11, and the sum can therefore be written as a Riemann-Stieljes integral.
+\newline{}
+\end{proof}
+\textbf{Ch.7 Examples:} \newline{}
+Let $\{a_n\}$ be a sequence of real numbers. For $x\geq 0$, define $$A(x) = \sum_{n\leq x}a_n = \sum_{n=1}^{[x]}a_n$$
+Where $[x]$ is the greatest integer in $x$ and empty sums are interpreted as zero.  Let $f$ have a continuous derivative in $[1,a]$. Use Stieltjes integrals to derive: $$\sum_{n\leq a}a_nf(n) = -\int_{1}^{a}A(x)f'(x)dx + A(a)f(a)$$
+\begin{proof} Since $$\int_{1}^{a}A(x)f'(x)dx=\int_{1}^{a}A(x)df(x) \textrm{ since f has a continuous derivative on } [1, a]$$
+$$= - \int_{1}^{a}f(x)dA(x)+A(a)f(a)-A(1)f(1) \textrm{ From integration by parts }$$
+$$= - \sum_{n\leq a}a_nf(n)+A(a)f(a) \textrm{ by } \int_{1}^{a}f(x)dA(x)=\sum_{n=2}^{[a]}a_nf(n) \textrm{ and } A(1)=a_1$$
+Therefore we know that: $$\sum_{n\leq a}a_nf(n) = -\int_{1}^{a}A(x)f'(x)dx + A(a)f(a)$$
 \end{proof}
 
-The following three proofs are with respect to problem 9
-\begin{theorem}[7.30 first mean-value theorem for Riemann-Stieltjes integrals]
+\underline{\textbf{The following 3 theorems are with respect to problem 9}}
+\begin{theorem}[7.30 First Mean-Value Theorem for Riemann-Stieltjes integrals]
 Assume that $\alpha$ is increasing and let $f \in R(\alpha)$ on $[a,b]$. Let $M$ and $m$ denote, respectively, the $sup$ and $inf$ of the set $\{f(x):x \in [a,b]\}$. Then $\exists c \in \mathbb{R}$ satisfying $m \leq c \leq M$ such that
-\[\int_{a}^{b}f(x)d\alpha(x) = c\int_{a}^{b}d\alpha(x) = c[\alpha(a)-\alpha(b)]\]
+\[\int_{a}^{b}f(x)d\alpha(x) = c\int_{a}^{b}d\alpha(x) = c[\alpha(b)-\alpha(a)]\]
 In particular, if $f$ is continuous on $[a,b]$, then $c=f(x_{0})$ for some $x_{0} \in [a,b]$.
 %Theorem 7.30, 7.32 and 7.34 with examples
 \end{theorem}
 \begin{proof}
+if $\alpha(a) = \alpha(b) \Rightarrow \int_{a}^{b}f(x)d\alpha(x) = c[\alpha(b)-\alpha(a)] = 0$ and the condition holds trivially. Hence, assume $\alpha(a) < \alpha(b)$. Consider the following inequality that holds true for all upper and lower sums
+\[m[\alpha(b) - \alpha(a)] \leq L(P,f,\alpha) \leq U(P,f,\alpha) \leq M[\alpha(b) - \alpha(a)]\]
+$\int_{a}^{b}f(x)d\alpha$ must be lie in this interval. This is clear since if $m$ is the smallest $f(x)$, then clearly, the smallest "area" possible is m multiplied by the length of the integrand and similarly $M$ multiplied by the length of the integrand will be the largest possible area of the integral. Therefore,
+\[m[\alpha(b) - \alpha(a)] \leq \int_{a}^{b}f(x)d\alpha \leq M[\alpha(b) - \alpha(a)]\]
+\[m \leq \frac{\int_{a}^{b}f(x)d\alpha}{[\alpha(b) - \alpha(a)]} \leq M\]
+\[m \leq \frac{\int_{a}^{b}f(x)d\alpha}{\int_{a}^{b}d\alpha} \leq M\]
+Hence, define
+$$c = \frac{\int_{a}^{b}f(x)d\alpha}{\int_{a}^{b}d\alpha}$$
+Clearly, if $f$ is continuous on $[a,b]$, then we can apply the intermediate value to find that $\exists x_{0} \in [a,b] \textrm{ such that } f(x_{0}) = c$
+\newline{}
 \end{proof}
+
 
 \begin{theorem}[7.32]
 Let $\alpha$ be of bounded variation on $[a,b]$ and assume that
 $f \in R(\alpha)$ on $[a,b]$. Define F by
-\[F(x)=\int_{a}^{x} f d \alpha \textrm{ if } x \in [a,b]\]
+\[F(x)=\int_{a}^{x} f d \alpha \quad \textrm{ if } x \in [a,b]\]
 \begin{enumerate}[\upshape a)]
   \item $F$ is of bounded variation $[a,b]$.
   \item Every point of continuity of $\alpha$ is also a point of continuity of $F$.
@@ -382,6 +476,39 @@ $f \in R(\alpha)$ on $[a,b]$. Define F by
 %Theorem 7.30, 7.32 and 7.34 with examples
 \end{theorem}
 \begin{proof}
+\begin{enumerate}[\upshape a)]
+\item if $x \ne y$ and $\alpha$ increasing on $[a,b]$, then consider the following
+\begin{equation}
+  \begin{split}
+   F(y) - F(x)
+   &= \int_{a}^{x} f d \alpha - \int_{a}^{y} f d \alpha \nonumber\\
+   &= \int_{x}^{y} f d \alpha \qquad \textrm{(by Theorem 7.4, } \int_{a}^{c} f d \alpha + \int_{c}^{b} f d \alpha = \int_{a}^{b} f d \alpha) \nonumber \\
+   &= c[\alpha(y) - \alpha(x)] \qquad \textrm{(by Theorem 7.30)}\\
+   F(y) - F(x) &=  c[\alpha(y) - \alpha(x)] \qquad \textrm{(1)}\\
+  \end{split}
+ \end{equation}
+where $m \leq c \leq M$. if $\alpha$ is of bounded variation on $[a,b]$, then
+$$\sum_{k=1}^{n} \left| \Delta \alpha_{k} \right| \leq T$$
+where $T$ is a positive number. Then consider
+\begin{equation}
+  \begin{split}
+  \sum_{k=1}^{n} \left| \Delta F_{k} \right|
+  &= \sum_{k=1}^{n} \left| F(x_{k})-F(x_{k-1}) \right| \nonumber\\
+  &= \sum_{k=1}^{n} \left| c_{k}[\alpha(x_{k}) - \alpha(x_{k-1})] \right| \quad \textrm{by equation (1)} \\
+  &= \sum_{k=1}^{n} \left| c_{k}\Delta \alpha_{k} \right| \\
+  &\leq T\sum_{k=1}^{n} \left| c_{k} \right| \\
+  \end{split}
+\end{equation}
+Hence $\sum_{k=1}^{n} \left| \Delta F_{k} \right|$ is bounded by a positive number $T\sum_{k=1}^{n} \left| c_{k} \right|$, therefore $F$ is of bounded variation on $[a,b]$.
+\item By Theorem 7.30, we have that $F(x)=\int_{a}^{x} f d \alpha =  c[\alpha(x) - \alpha(a)]$. Hence, if $\alpha$ is continuous at a point $x$, then $F$ is also continuous at $x$.
+\item Consider $F(y) - F(x) =  c[\alpha(y) - \alpha(x)]$, then by dividing $y-x$ on both sides, we have
+$$\frac{F(y) - F(x)}{y-x} = c\frac{\alpha(y) - \alpha(x)}{y-x} $$
+taking the limit as $y \to x$ we have,
+$$\lim_{y \to x}\frac{F(y) - F(x)}{y-x}=\lim_{y \to x}c\frac{\alpha(y) - \alpha(x)}{y-x}$$
+$$ F^\prime(x) = c \alpha^\prime(x) $$
+Since $c = f(x_{0})$ for some $x_{0} \in [x,y]$, we have that when we take the limit as $y \to x$, then $x_{0} \in [x,x]$. Hence $x_{0} = x$, and $c = f(x)$. Therefore
+$$ F^\prime(x) = f(x) \alpha^\prime(x) $$
+\end{enumerate}
 \end{proof}
 
 \begin{theorem}[7.34 Second fundamental theorem of integral calculus]
@@ -394,26 +521,61 @@ Then we have
 %Theorem 7.30, 7.32 and 7.34 with examples
 \end{theorem}
 \begin{proof}
+For every partition on $[a,b]$, we can rewrite $g(b)-g(a)$ by
+$$g(b)-g(a) = \sum_{k=1}^{n}[g(x_{k}) - g(x_{k-1})]= \sum_{k=1}^{n}g^\prime(t_{k})\Delta x_{k} = \sum_{k=1}^{n}f(t_{k})\Delta x_{k}$$
+where $t_{k} \in (x_{k-1},x_{k})$ determined by the Mean Value Theorem by
+$g^\prime(t_{k}) = \frac{g(x_{k}) - g(x_{k-1})}{x_{k}-x_{k-1}}$.
+Taking $\epsilon > 0$, the  partition can be made finer such that
+$$\left| g(b) - g(a) - \int_{a}^{b} f(x)dx \right| =  \left| \sum_{k=1}^{n}f(t_{k})\Delta x_{k} - \int_{a}^{b} f(x)dx \right| < \epsilon $$
+Hence,
+$$ \int_{a}^{b} f(x)dx = g(b) - g(a)$$
+This proves the assertion.
+\newline{}
 \end{proof}
 
-The next 4 theorems are with respect to problem 11
+\textbf{Ch.7 Examples}\newline{}
+\textbf{Example 1:}
+The Second Mean-Value Theorem for Riemann Integrals(Thm.7.37) states that, if $f$ and $g$ be function defined on $[a,b]$ with $f$ increasing and $g$ continuous, then
+$$\int_{a}^{b}f(x)g(x) dx = f(a)\int_{a}^{x_{0}}g(x)dx + f(b)\int_{x_{0}}^{b}g(x)dx $$
+for some $x_{0} \in [a,b]$.
+\begin{proof}
+If $G(x) = \int_{a}^{x}g(x)dx$ and
+$$\int_{a}^{b}f(x)g(x) dx =\int_{a}^{b}f(x)dG(x) = f(a)(G(x_{0})-G(a)) + f(b)(G(b) - G(x_{0}))$$
+for some $x_{0} \in [a,b]$ by the Theorem 7.30, the First Mean-Value Theorem.
+\end{proof}
+\textbf{Example 2:}
+Let $\alpha$ be a continuous function of bounded variation on $[a,b]$.  Assume $g\in R(\alpha)$ on $[a,b]$ and define $\beta (x)= \int_{a}^{x}g(t)d\alpha (t)$ if $x\in [a,b]$.  Show that: $\newline$
+If $f$ only increases on $[a,b]$, then $\exists x_0 \in [a,b]$ such that:
+$$\int_{a}^{b}fd\beta = f(a)\int_{a}^{x_0}gd\alpha + f(b)\int_{x_0}^{b}gd\alpha$$
+\begin{proof}
+ Since $\alpha$ is a continuous function of bounded variation on $[a, b]$, and $g\in R(\alpha)$ on $[a, b]$, we know that $\beta (x)$ is a continuous function of bounded variation on $[a, b]$, by
+Theorem 7.32. Hence, by Second Mean-Value Theorem for Riemann-Stieltjes integrals, we know that: $$\int_{a}^{b}fd\beta =f(a)\int_{a}^{x_0}\beta (x)+ f(b)\int_{x_0}^{b}d\beta (x)$$
+which implies that, By Theorem 7.26,
+$$\int_{a}^{b}fd\beta = f(a)\int_{a}^{x_0}gd\alpha + f(b)\int_{x_0}^{b}gd\alpha$$\newline{}
+$$ $$
+\end{proof}
+\newpage{}
+
+\underline{\textbf{The next 4 theorems are with respect to problem 10.}}
 \begin{theorem}[8.22]
 If $|x| < 1$, the series $1 + x + x^2 + ... $  converges and has the sum $\frac{1}{1-x}$. If $|x| \geq 1$, the series diverges.
 %Convergence Test: Thms 8.22, 8.23,8.25,8.26 with Examples
 \end{theorem}
 \begin{proof}
-the series can be written in summation form by $\sum_{k=0}^{n}x^k$, and by multiplying it by $1-x$, we can simply our sum to be in terms of only $x$ and $n$,
+the series can be written in summation form by $\sum_{k=0}^{n}x^k$, and by multiplying it by $1-x$, we can simplify our sum to be in terms of only $x$ and $n$,
     $$(1-x)\sum_{k=0}^{n}x^k = \sum_{k=0}^{n}x^k - x\sum_{k=0}^{n}x^k$$
     $$\qquad = \sum_{k=0}^{n}(x^k - x^{k+1})$$
     $$ = 1-x^{n+1}$$
-    dividing $(x-1)$ on both sides, we get
+    dividing $(1-x)$ on both sides, we get
     $$\qquad \sum_{k=0}^{n}x^k = \frac{1-x^{n+1}}{(1-x)}$$
 if $ \left| x \right| < 1$ and as $n \rightarrow \infty$ we have that
 $$lim_{n \rightarrow \infty}x^{n+1} = 0$$
 and hence
 $$lim_{n \rightarrow \infty}\frac{1-x^{n+1}}{(1-x)}=\frac{1}{(1-x)}$$
 if $ \left| x \right| \geq 1 \quad \Rightarrow$ as $n \rightarrow \infty$, we have that
-$lim_{n \rightarrow \infty}x^{n+1}$ diverges and hence $\frac{1-x^{n+1}}{(1-x)}$ diverges
+$lim_{n \rightarrow \infty}x^{n+1}$ diverges and hence $\frac{1-x^{n+1}}{(1-x)}$ diverges.
+\newline{}
+(NOTE: This Theorem can be proved briefly using Theorem 8.10 on the convergence of telescopic series, letting $a_{n} = x^{k} - x^{k+1}$)
 \end{proof}
 
 \begin{theorem}[8.23 integral test]
@@ -455,6 +617,10 @@ Given a series $\sum a_{n}$ of nonzero complex terms, let
 %Convergence Test: Thms 8.22, 8.23,8.25,8.26 with Examples
 \end{theorem}
 \begin{proof}
+Assume that $R<1$ and take $x$ such that $R<x<1$. Since $R<1$, we know that $a_{n+1}<a_n$. This implies $\exists N$ such that $|\frac{a_{n+1}}{a_n}|<x$ whenever $n\geq N$. Since $x = \frac{x^{n+1}}{x^n}$: $$\frac{|a_{n+1}|}{x^{n+1}}<\frac{|a_n|}{x^n}\leq \frac{|a_N|}{x^N} \qquad \textrm{if }n\geq N$$
+$\Rightarrow \quad |a_n|\leq cx^n$ if $n\leq N$, where $c=|a_N|x^{-N}$.  We now have the requirements fulfilled to apply the comparison test $\Rightarrow \quad \sum a_n$ converges and $a)$ is confirmed.
+Now we assume that $r>1$.  $\Rightarrow \quad |a_{n+1}|>a_n \quad \forall n\geq N$ for some $N$ and therefore $\lim_{n\to \infty} \neq 0$ so $\sum a_n$ diverges and $b)$ is confirmed.
+Finally, to confirm $c)$ consider the two summations: $$\sum n^{-1} \quad \sum n^{-2}$$  In both summations, $r=R=1$ but we know that $\sum n^{-1}$ diverges but that $\sum n^{-2}$ converges so the test is inconclusive confirming $c)$.
 \end{proof}
 
 \begin{theorem}[8.26 root test]
@@ -468,7 +634,16 @@ Given a series $\sum a_{n}$ of complex terms, let
 %Convergence Test: Thms 8.22, 8.23,8.25,8.26 with Examples
 \end{theorem}
 \begin{proof}
+Assume that $\rho <1$ and take $x$ such that $\rho <x<1$.  Since $\rho <1$ we know that $\exists N$ such that $|a_n|<x^n$ whenever $n\geq N$. We now have the elements required to run the comparison test and since $x^n$ converges to $0$ and $|a_n|<x^n$, we know that $\sum a_n$ also converges confirming $a)$. $\newline$
+Now assume that $\rho >1$.  This implies that $|a_n|>1 \quad \forall a_n$ so $\lim_{n\to \infty}a_n\neq 0$ and therefore $\sum a_n$ diverges confirming $b)$.  $\newline$
+Consider the two summations: $$\sum n^{-1} \quad \sum n^{-2}$$  In both summations, $\rho =1$ but we know that $\sum n^{-1}$ diverges but that $\sum n^{-2}$ converges so the test is inconclusive confirming $c)$.
 \end{proof}
+\textbf{Ch.8 Examples}: $\newline$
+Test for convergence: $\sum_{n=1}^{\infty}n^3e^{-n}$ $\newline$
+By Root Test, $\lim_{n\to \infty}\sup (\frac{n^3}{e^n})^{1/n} = \frac{1}{e}<1 \quad \Rightarrow$  The sum converges. $\newline$
+Test for convergence: $\sum_{n=3}^{\infty}\frac{1}{n log n (log log n)^p}$ $\newline$
+By Integral Test.  The function $f(x)=\frac{1}{n log n (log log n)^p}$ is positive, decreasing, and continuous on $[a,\infty)$ so the test is usable.  Consider: $$\int_a^\infty \frac{dx}{x log x (log log x)^p} = \int_{log log a}^\infty \frac{dy}{y^p}$$
+Which implies that the series converges if $p>1$ and it diverges if $p\leq 1$
 
 %The next 2 theorems are with respect to problem 12
 %\begin{theorem}[9.5 Cauchy condition for uniform convergence of series]
